@@ -3,8 +3,10 @@
 int main() {
     CURRENT_PRICE = 0.15;
     Device appliance1(500, "phone");
+    Device device1(10, 4, "raspberry");
 
-    appliance1.calculateCosts();
+    device1.printCosts();
+
     appliance1.printCosts();
     return 0;
 }
