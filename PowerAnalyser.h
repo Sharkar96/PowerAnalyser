@@ -8,33 +8,31 @@
 #include<iostream>
 
 
-static float w_TO_Kw_CONVERSION_RATE = 1000.;
-static float mA_TO_A_CONVERSION_RATE = 1000.;
+static float CONVERSION_RATE = 1000.;
 static unsigned short int HOURS_IN_A_DAY = 24;
 static unsigned short int DAYS_IN_A_MONTH = 30;
 static unsigned short int DAYS_IN_A_YEAR = 365;
+static float CURRENT_PRICE;
 
-enum Currency {
-    euros, dollars
-};
 
 class PowerAnalyser {
 public:
-    PowerAnalyser(unsigned int w) : watts{w} {};
+    explicit PowerAnalyser(unsigned int w, std::string n) : watts{w}, name{n} {
+        currentPrice = CURRENT_PRICE;
+    };
 
-    PowerAnalyser(unsigned int v, unsigned int a) {
+    PowerAnalyser(unsigned int v, unsigned int a, std::string n) {
         if(v > 0 && a > 0) {
             if(a > 10)//amps are in mA
-                PowerAnalyser((v * a) / mA_TO_A_CONVERSION_RATE);
+                PowerAnalyser((v * a) / CONVERSION_RATE, n);
             else
-                PowerAnalyser(v * a);
+                PowerAnalyser(v * a, n);
         }
     };
     void calculateCosts();
     void printCosts();
 
-    float getCurrentPrice();
-    void setCurrentPrice(float currentPrice);
+
     unsigned int getWatts() const;
     void setWatts(unsigned int watts);
     float getYearlyCost() const;
@@ -44,10 +42,9 @@ public:
     float getDailyCost() const;
     void setDailyCost(float dailyCost);
 private:
-    float CURRENT_PRICE;
-
+    float currentPrice;
     unsigned int watts;
-
+    std::string name;
     float yearlyCost{0.};
     float monthlyCost{0.};
     float dailyCost{0.};
