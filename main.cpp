@@ -1,12 +1,13 @@
 #include <iostream>
 #include "Device.h"
 int main() {
-    CURRENT_PRICE = 0.15;
-    Device appliance1(500, "phone");
-    Device device1(10, 4, "raspberry");
+    CURRENT_PRICE = 0.18;
 
+    Device device1(5, "raspberry", 7);
+    Device device2(300, "pc", 7);
     device1.printCosts();
+    device2.printCosts();
 
-    appliance1.printCosts();
+
     return 0;
 }

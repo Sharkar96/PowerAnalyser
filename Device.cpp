@@ -39,7 +39,7 @@ void Device::setDailyCost(float dailyCost) {
 }
 
 void Device::calculateCosts() {
-    dailyCost = (watts / CONVERSION_RATE) * HOURS_IN_A_DAY * currentPrice;
+    dailyCost = (watts / CONVERSION_RATE) * hourUsage * currentPrice;
     monthlyCost = dailyCost * DAYS_IN_A_MONTH;
     yearlyCost = dailyCost * DAYS_IN_A_YEAR;
 

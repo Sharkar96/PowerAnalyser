@@ -8,20 +8,20 @@
 #include<iostream>
 
 
-static float CONVERSION_RATE = 1000.;
+static const float CONVERSION_RATE = 1000.;
 static unsigned short int HOURS_IN_A_DAY = 24;
 static unsigned short int DAYS_IN_A_MONTH = 30;
 static unsigned short int DAYS_IN_A_YEAR = 365;
-static float CURRENT_PRICE;
+static float CURRENT_PRICE = 0.18;
 
 
 class Device {
 public:
-    Device(float w, std::string n) : watts{w}, name{n} {
+    Device(float w, std::string n, unsigned int h = HOURS_IN_A_DAY) : watts{w}, name{n}, hourUsage{h} {
         calculateCosts();
     };
 
-    Device(unsigned int v, unsigned int a, std::string n) : name{n} {
+    Device(unsigned int v, unsigned int a, std::string n, unsigned int h = HOURS_IN_A_DAY) : name{n}, hourUsage{h} {
         if(v > 0 && a > 0) {
             if(a > 10)//amps are in mA
                 watts = (v * a) / CONVERSION_RATE;
@@ -50,6 +50,7 @@ private:
     float yearlyCost{0.};
     float monthlyCost{0.};
     float dailyCost{0.};
+    unsigned int hourUsage{HOURS_IN_A_DAY};
 };
 
 
