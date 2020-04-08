@@ -1,8 +1,8 @@
 #include <iostream>
-#include "PowerAnalyser.h"
+#include "Device.h"
 int main() {
     CURRENT_PRICE = 0.15;
-    PowerAnalyser appliance1(500, "phone");
+    Device appliance1(500, "phone");
 
     appliance1.calculateCosts();
     appliance1.printCosts();

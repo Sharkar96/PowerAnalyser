@@ -2,8 +2,8 @@
 // Created by Andrea on 4/8/2020.
 //
 
-#ifndef POWERANALYSER_POWERANALYSER_H
-#define POWERANALYSER_POWERANALYSER_H
+#ifndef POWERANALYSER_DEVICE_H
+#define POWERANALYSER_DEVICE_H
 
 #include<iostream>
 
@@ -15,18 +15,18 @@ static unsigned short int DAYS_IN_A_YEAR = 365;
 static float CURRENT_PRICE;
 
 
-class PowerAnalyser {
+class Device {
 public:
-    explicit PowerAnalyser(unsigned int w, std::string n) : watts{w}, name{n} {
+    explicit Device(unsigned int w, std::string n) : watts{w}, name{n} {
         currentPrice = CURRENT_PRICE;
     };
 
-    PowerAnalyser(unsigned int v, unsigned int a, std::string n) {
+    Device(unsigned int v, unsigned int a, std::string n) {
         if(v > 0 && a > 0) {
             if(a > 10)//amps are in mA
-                PowerAnalyser((v * a) / CONVERSION_RATE, n);
+                Device((v * a) / CONVERSION_RATE, n);
             else
-                PowerAnalyser(v * a, n);
+                Device(v * a, n);
         }
     };
     void calculateCosts();
@@ -51,4 +51,4 @@ private:
 };
 
 
-#endif //POWERANALYSER_POWERANALYSER_H
+#endif //POWERANALYSER_DEVICE_H

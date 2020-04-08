@@ -3,4 +3,4 @@ project(PowerAnalyser)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PowerAnalyser main.cpp PowerAnalyser.cpp PowerAnalyser.h)
+add_executable(PowerAnalyser main.cpp Device.cpp Device.h)
