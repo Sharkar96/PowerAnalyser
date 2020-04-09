@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Device.h"
+#include "ViewMain.h"
 #include <QApplication>
 
 int main(int argc, char* argv[]) {
@@ -14,10 +15,8 @@ int main(int argc, char* argv[]) {
     device3.printCosts();
 
     QApplication app(argc, argv);
-
-
-    View view(model, controller);
-    view.show();
+    ViewMain viewMain;
+    viewMain.show();
 
     return app.exec();
 

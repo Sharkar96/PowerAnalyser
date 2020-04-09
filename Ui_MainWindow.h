@@ -2,8 +2,8 @@
 // Created by Andrea on 4/9/2020.
 //
 
-#ifndef POWERANALYSER_MAINWINDOW_H
-#define POWERANALYSER_MAINWINDOW_H
+#ifndef POWERANALYSER_UI_MAINWINDOW_H
+#define POWERANALYSER_UI_MAINWINDOW_H
 
 
 /********************************************************************************
@@ -57,7 +57,7 @@ public:
 
     void setupUi(QMainWindow* MainWindow) {
         if(MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+            MainWindow->setObjectName(QString::fromUtf8("Ui_MainWindow"));
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -147,25 +147,22 @@ public:
     } // setupUi
 
     void retranslateUi(QMainWindow* MainWindow) {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        InsertPushButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
-        VAbutton->setText(QCoreApplication::translate("MainWindow", "Volts / Amps", nullptr));
-        wattsButton->setText(QCoreApplication::translate("MainWindow", "Watts", nullptr));
-        VoltsWattsLabel->setText(QCoreApplication::translate("MainWindow", "Volts", nullptr));
-        AmpsLabel->setText(QCoreApplication::translate("MainWindow", "Amps", nullptr));
-        NameLabel->setText(QCoreApplication::translate("MainWindow", "Device name", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("Ui_MainWindow", "Ui_MainWindow", nullptr));
+        InsertPushButton->setText(QCoreApplication::translate("Ui_MainWindow", "Add", nullptr));
+        VAbutton->setText(QCoreApplication::translate("Ui_MainWindow", "Volts / Amps", nullptr));
+        wattsButton->setText(QCoreApplication::translate("Ui_MainWindow", "Watts", nullptr));
+        VoltsWattsLabel->setText(QCoreApplication::translate("Ui_MainWindow", "Volts", nullptr));
+        AmpsLabel->setText(QCoreApplication::translate("Ui_MainWindow", "Amps", nullptr));
+        NameLabel->setText(QCoreApplication::translate("Ui_MainWindow", "Device name", nullptr));
     } // retranslateUi
 
 };
 
-namespace Ui {
-    class MainWindow : public Ui_MainWindow {
-    };
-} // namespace Ui
+
 
 QT_END_NAMESPACE
 
 #endif // DESIGNERHPJWWZ_H
 
 
-#endif //POWERANALYSER_MAINWINDOW_H
+#endif //POWERANALYSER_UI_MAINWINDOW_H
