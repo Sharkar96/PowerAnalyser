@@ -4,7 +4,7 @@
 
 #ifndef POWERANALYSER_VIEWMAIN_H
 #define POWERANALYSER_VIEWMAIN_H
-
+#include <iostream>
 #include <QMAinWindow>
 #include "Ui_MainWindow.h"
 
@@ -13,6 +13,9 @@ Q_OBJECT
 public:
     ViewMain(QWidget* parent = 0);
     ~ViewMain();
+private slots:
+
+    void button_clicked();
 private:
     Ui_MainWindow* ui;
 

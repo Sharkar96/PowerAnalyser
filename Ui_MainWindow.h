@@ -143,6 +143,7 @@ public:
 
         retranslateUi(MainWindow);
 
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
