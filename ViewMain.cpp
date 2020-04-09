@@ -14,5 +14,19 @@ ViewMain::~ViewMain() {
 }
 
 void ViewMain::button_clicked() {
+    if(ui->VAbutton->isChecked())
+        devicesList.emplace_back(new Device(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
+                                            ui->NameLineEdit->text().toStdString(), 7)); // TODO add hours text edit
+    else if(ui->wattsButton->isChecked())
+        devicesList.emplace_back(
+                new Device(ui->VoltsWattLineEdit->text().toInt(), ui->NameLineEdit->text().toStdString(), 7));
+    clearInput();
     std::cout << "clicked" << std::endl;
+
+}
+
+void ViewMain::clearInput() {
+    ui->VoltsWattLineEdit->clear();
+    ui->AmpsLineEdit->clear();
+    ui->NameLineEdit->clear();
 }
