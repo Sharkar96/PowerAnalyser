@@ -18,10 +18,13 @@ public:
     ~ViewMain();
 
     void clearInput();
+    void goWattMode();
+    void goVAmode();
 private slots:
     void button_clicked();
+    void switchMode();
 private:
-
+    bool mode; // true=watt mode, false= VA mode
     Ui_MainWindow* ui;
     std::vector<Device*> devicesList;
 };

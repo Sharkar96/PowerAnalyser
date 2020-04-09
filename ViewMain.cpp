@@ -7,6 +7,8 @@
 ViewMain::ViewMain(QWidget* parent) : QMainWindow(parent), ui(new Ui_MainWindow()) {
     ui->setupUi(this);
     connect(ui->InsertPushButton, SIGNAL(clicked()), this, SLOT(button_clicked()));
+    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(switchMode()));
+
 }
 
 ViewMain::~ViewMain() {
@@ -14,14 +16,14 @@ ViewMain::~ViewMain() {
 }
 
 void ViewMain::button_clicked() {
-    if(ui->VAbutton->isChecked())
+    if(!mode)
         devicesList.emplace_back(new Device(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
                                             ui->NameLineEdit->text().toStdString(), 7)); // TODO add hours text edit
-    else if(ui->wattsButton->isChecked())
+    else if(mode)
         devicesList.emplace_back(
                 new Device(ui->VoltsWattLineEdit->text().toInt(), ui->NameLineEdit->text().toStdString(), 7));
     clearInput();
-    std::cout << "clicked" << std::endl;
+    devicesList.back()->printCosts();
 
 }
 
@@ -29,4 +31,28 @@ void ViewMain::clearInput() {
     ui->VoltsWattLineEdit->clear();
     ui->AmpsLineEdit->clear();
     ui->NameLineEdit->clear();
+}
+
+void ViewMain::goVAmode() {
+    ui->pushButton->setText("Volts");
+    ui->AmpsLineEdit->setVisible(true);
+    ui->AmpsLabel->setVisible(true);
+
+}
+
+void ViewMain::goWattMode() {
+    ui->pushButton->setText("Watts");
+    ui->AmpsLineEdit->setVisible(false);
+    ui->AmpsLabel->setVisible(false);
+}
+
+void ViewMain::switchMode() {
+    if(mode) {
+        mode = false;
+        goVAmode();
+    } else {
+        mode = true;
+        goWattMode();
+    }
+
 }
