@@ -65,7 +65,7 @@ public:
     QHBoxLayout* horizontalLayout_4;
     QLabel* Yearly;
     QFrame* line_2;
-    QLabel* label_7;
+    QLabel* YearlyText;
     QWidget* widget3;
     QVBoxLayout* verticalLayout;
     QLabel* label;
@@ -245,15 +245,15 @@ public:
 
         horizontalLayout_4->addWidget(line_2);
 
-        label_7 = new QLabel(widget2);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        sizePolicy.setHeightForWidth(label_7->sizePolicy().hasHeightForWidth());
-        label_7->setSizePolicy(sizePolicy);
-        label_7->setFont(font1);
-        label_7->setAutoFillBackground(false);
-        label_7->setScaledContents(false);
+        YearlyText = new QLabel(widget2);
+        YearlyText->setObjectName(QString::fromUtf8("YearlyText"));
+        sizePolicy.setHeightForWidth(YearlyText->sizePolicy().hasHeightForWidth());
+        YearlyText->setSizePolicy(sizePolicy);
+        YearlyText->setFont(font1);
+        YearlyText->setAutoFillBackground(false);
+        YearlyText->setScaledContents(false);
 
-        horizontalLayout_4->addWidget(label_7);
+        horizontalLayout_4->addWidget(YearlyText);
 
         splitter->addWidget(widget2);
         widget3 = new QWidget(centralwidget);
@@ -328,7 +328,7 @@ public:
         Monthly->setText(QCoreApplication::translate("MainWindow", "Monthly cost", nullptr));
         MonthlyText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         Yearly->setText(QCoreApplication::translate("MainWindow", "Yearly cost", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        YearlyText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Press to change mode", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Volts", nullptr));
         SetCurrentPriceButton->setText(QCoreApplication::translate("MainWindow", "Set current price", nullptr));

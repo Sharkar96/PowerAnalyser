@@ -22,7 +22,7 @@ void Device::setYearlyCost(float yearlyCost) {
     Device::yearlyCost = yearlyCost;
 }
 
-float Device::getMontlyCost() const {
+float Device::getMonthlyCost() const {
     return monthlyCost;
 }
 

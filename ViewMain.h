@@ -20,6 +20,7 @@ public:
     void clearInput();
     void goWattMode();
     void goVAmode();
+    void displayDeviceCosts(Device &a) const;
 private slots:
     void button_clicked();
     void switchMode();

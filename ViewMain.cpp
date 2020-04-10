@@ -18,12 +18,14 @@ ViewMain::~ViewMain() {
 void ViewMain::button_clicked() {
     if(!mode)
         devicesList.emplace_back(new Device(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
-                                            ui->NameLineEdit->text().toStdString(), 7)); // TODO add hours text edit
+                                            ui->NameLineEdit->text().toStdString(), ui->HoursText->text().toInt()));
     else if(mode)
         devicesList.emplace_back(
-                new Device(ui->VoltsWattLineEdit->text().toInt(), ui->NameLineEdit->text().toStdString(), 7));
+                new Device(ui->VoltsWattLineEdit->text().toInt(), ui->NameLineEdit->text().toStdString(),
+                           ui->HoursText->text().toInt()));
     clearInput();
     devicesList.back()->printCosts();
+    displayDeviceCosts(*devicesList.back());
 
 }
 
@@ -31,10 +33,12 @@ void ViewMain::clearInput() {
     ui->VoltsWattLineEdit->clear();
     ui->AmpsLineEdit->clear();
     ui->NameLineEdit->clear();
+    ui->HoursText->clear();
 }
 
 void ViewMain::goVAmode() {
     ui->pushButton->setText("Volts");
+    ui->VoltsWattsLabel->setText("Volts");
     ui->AmpsLineEdit->setVisible(true);
     ui->AmpsLabel->setVisible(true);
 
@@ -42,6 +46,7 @@ void ViewMain::goVAmode() {
 
 void ViewMain::goWattMode() {
     ui->pushButton->setText("Watts");
+    ui->VoltsWattsLabel->setText("Watts");
     ui->AmpsLineEdit->setVisible(false);
     ui->AmpsLabel->setVisible(false);
 }
@@ -56,3 +61,11 @@ void ViewMain::switchMode() {
     }
 
 }
+
+void ViewMain::displayDeviceCosts(Device &a) const {
+    ui->DailyText->setText(QString::number(a.getDailyCost()));
+    ui->MonthlyText->setText(QString::number(a.getMonthlyCost()));
+    ui->YearlyText->setText(QString::number(a.getYearlyCost()));
+}
+
+

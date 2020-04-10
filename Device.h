@@ -39,7 +39,7 @@ public:
     void setWatts(unsigned int watts);
     float getYearlyCost() const;
     void setYearlyCost(float yearlyCost);
-    float getMontlyCost() const;
+    float getMonthlyCost() const;
     void setMontlyCost(float montlyCost);
     float getDailyCost() const;
     void setDailyCost(float dailyCost);
