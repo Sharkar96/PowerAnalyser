@@ -21,7 +21,9 @@ public:
     void goWattMode();
     void goVAmode();
     void displayDeviceCosts(Device &a) const;
+
 private slots:
+    void setCurrentPrice();
     void button_clicked();
     void switchMode();
 private:

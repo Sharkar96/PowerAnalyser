@@ -8,6 +8,8 @@ ViewMain::ViewMain(QWidget* parent) : QMainWindow(parent), ui(new Ui_MainWindow(
     ui->setupUi(this);
     connect(ui->InsertPushButton, SIGNAL(clicked()), this, SLOT(button_clicked()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(switchMode()));
+    connect(ui->SetCurrentPriceButton, SIGNAL(clicked()), this, SLOT(setCurrentPrice()));
+    ui->CurrentPriceText->setVisible(false);
 
 }
 
@@ -66,6 +68,15 @@ void ViewMain::displayDeviceCosts(Device &a) const {
     ui->DailyText->setText(QString::number(a.getDailyCost()));
     ui->MonthlyText->setText(QString::number(a.getMonthlyCost()));
     ui->YearlyText->setText(QString::number(a.getYearlyCost()));
+}
+
+void ViewMain::setCurrentPrice() {
+    if(ui->CurrentPriceText->isVisible()) {
+        if(ui->CurrentPriceText->text() != "")
+            CURRENT_PRICE = ui->CurrentPriceText->text().toFloat();
+        ui->CurrentPriceText->setVisible(false);
+    } else
+        ui->CurrentPriceText->setVisible(true);
 }
 
 
