@@ -31,10 +31,12 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
+
 QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow {
 public:
+
     QWidget* centralwidget;
     QPushButton* InsertPushButton;
     QWidget* layoutWidget;

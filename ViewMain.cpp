@@ -5,6 +5,7 @@
 #include "ViewMain.h"
 
 ViewMain::ViewMain(QWidget* parent) : QMainWindow(parent), ui(new Ui_MainWindow()) {
+
     ui->setupUi(this);
     connect(ui->InsertPushButton, SIGNAL(clicked()), this, SLOT(button_clicked()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(switchMode()));
