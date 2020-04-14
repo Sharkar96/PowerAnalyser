@@ -33,6 +33,7 @@ private slots:
     void setCurrentPrice();
     void button_clicked();
     void switchMode();
+    void onItemClicked();
 
 private:
     ControllerMain* controller;

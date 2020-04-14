@@ -21,3 +21,7 @@ void ControllerMain::addDevice(int v, int a, std::string n, int h) {
 void ControllerMain::setCurrentPrice(float currentPrice) {
     CURRENT_PRICE = currentPrice;
 }
+
+void ControllerMain::displayCosts(std::string name) {
+    std::cout << name << std::endl;
+}

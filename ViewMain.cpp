@@ -11,6 +11,7 @@ ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m},
     connect(ui->InsertPushButton, SIGNAL(clicked()), this, SLOT(button_clicked()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(switchMode()));
     connect(ui->SetCurrentPriceButton, SIGNAL(clicked()), this, SLOT(setCurrentPrice()));
+    connect(ui->listWidgetDevices, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(onItemClicked()));
     ui->CurrentPriceText->setVisible(false);
 
 }
@@ -48,6 +49,9 @@ void ViewMain::switchMode() {
     controller->switchMode();
 }
 
+void ViewMain::onItemClicked() {
+    controller->displayCosts(ui->listWidgetDevices->currentItem()->text().toStdString());
+}
 
 void ViewMain::setCurrentPrice() {
     if(ui->CurrentPriceText->isVisible()) {
