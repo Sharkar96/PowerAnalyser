@@ -52,3 +52,5 @@ void Device::printCosts() {
     std::cout << "Yearly cost is: " << yearlyCost << std::endl;
 
 }
+
+

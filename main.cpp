@@ -2,7 +2,7 @@
 #include "Device.h"
 #include "ViewMain.h"
 #include <QApplication>
-
+#include "ControllerMain.h"
 
 int main(int argc, char* argv[]) {
     CURRENT_PRICE = 0.18;
@@ -10,7 +10,9 @@ int main(int argc, char* argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 
-    ViewMain viewMain;
+    ModelMain* model = new ModelMain;
+    ControllerMain* controller = new ControllerMain(model);
+    ViewMain viewMain(model, controller);
     viewMain.show();
 
     return app.exec();

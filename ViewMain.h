@@ -8,28 +8,37 @@
 #include <iostream>
 #include <QMAinWindow>
 #include "Ui_MainWindow.h"
-#include "Device.h"
-#include <vector>
+#include "Observer.h"
+#include "ModelMain.h"
+#include "ControllerMain.h"
 
-class ViewMain : public QMainWindow {
+class ViewMain : public QMainWindow, public Observer {
 Q_OBJECT
 public:
-    ViewMain(QWidget* parent = 0);
-    ~ViewMain();
+    ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent = 0);
 
-    void clearInput();
+    ~ViewMain() {
+        delete ui;
+        model->removeObserver(this);
+    };
+
     void goWattMode();
     void goVAmode();
     void displayDeviceCosts(Device &a) const;
+    void clearInput();
 
+    void updateDevice() override;
+    void updateMode() override;
 private slots:
     void setCurrentPrice();
     void button_clicked();
     void switchMode();
+
 private:
-    bool mode; // true=watt mode, false= VA mode
+    ControllerMain* controller;
+    ModelMain* model;
     Ui_MainWindow* ui;
-    std::vector<Device*> devicesList;
+
 };
 
 

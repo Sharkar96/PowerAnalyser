@@ -4,8 +4,9 @@
 
 #include "ViewMain.h"
 
-ViewMain::ViewMain(QWidget* parent) : QMainWindow(parent), ui(new Ui_MainWindow()) {
-
+ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m}, controller{c}, QMainWindow(parent),
+                                                                       ui(new Ui_MainWindow()) {
+    model->addObserver(this);
     ui->setupUi(this);
     connect(ui->InsertPushButton, SIGNAL(clicked()), this, SLOT(button_clicked()));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(switchMode()));
@@ -14,23 +15,12 @@ ViewMain::ViewMain(QWidget* parent) : QMainWindow(parent), ui(new Ui_MainWindow(
 
 }
 
-ViewMain::~ViewMain() {
-    delete ui;
-}
 
 void ViewMain::button_clicked() {
-    if(!mode)
-        devicesList.emplace_back(new Device(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
-                                            ui->NameLineEdit->text().toStdString(), ui->HoursText->text().toInt()));
-    else if(mode)
-        devicesList.emplace_back(
-                new Device(ui->VoltsWattLineEdit->text().toInt(), ui->NameLineEdit->text().toStdString(),
-                           ui->HoursText->text().toInt()));
-    clearInput();
-    devicesList.back()->printCosts();
-    displayDeviceCosts(*devicesList.back());
-
+    controller->addDevice(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
+                          ui->NameLineEdit->text().toStdString(), ui->HoursText->text().toInt());
 }
+
 
 void ViewMain::clearInput() {
     ui->VoltsWattLineEdit->clear();
@@ -55,20 +45,11 @@ void ViewMain::goWattMode() {
 }
 
 void ViewMain::switchMode() {
-    if(mode) {
-        mode = false;
-        goVAmode();
-    } else {
-        mode = true;
-        goWattMode();
-    }
-
+    controller->switchMode();
 }
 
 void ViewMain::displayDeviceCosts(Device &a) const {
-    ui->DailyText->setText(QString::number(a.getDailyCost()));
-    ui->MonthlyText->setText(QString::number(a.getMonthlyCost()));
-    ui->YearlyText->setText(QString::number(a.getYearlyCost()));
+
 }
 
 void ViewMain::setCurrentPrice() {
@@ -78,6 +59,22 @@ void ViewMain::setCurrentPrice() {
         ui->CurrentPriceText->setVisible(false);
     } else
         ui->CurrentPriceText->setVisible(true);
+}
+
+void ViewMain::updateMode() {
+    if(model->isMode())
+        goWattMode();
+    else
+        goVAmode();
+}
+
+void ViewMain::updateDevice() {
+    clearInput();
+    ui->DailyText->setText(QString::number(model->lastDevice().getDailyCost()));
+    ui->MonthlyText->setText(QString::number(model->lastDevice().getMonthlyCost()));
+    ui->YearlyText->setText(QString::number(model->lastDevice().getYearlyCost()));
+
+
 }
 
 

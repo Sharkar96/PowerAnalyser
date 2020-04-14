@@ -6,24 +6,24 @@
 #define POWERANALYSER_UI_MAINWINDOW_H
 
 /********************************************************************************
-** Form generated from reading UI file 'untitledkLPXqE.ui'
+** Form generated from reading UI file 'untitleddybHRl.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UNTITLEDKLPXQE_H
-#define UNTITLEDKLPXQE_H
+#ifndef UNTITLEDDYBHRL_H
+#define UNTITLEDDYBHRL_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSplitter>
@@ -31,12 +31,10 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
-
 QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow {
 public:
-
     QWidget* centralwidget;
     QPushButton* InsertPushButton;
     QWidget* layoutWidget;
@@ -53,35 +51,36 @@ public:
     QLineEdit* NameLineEdit;
     QGroupBox* ResultBox;
     QSplitter* splitter;
-    QWidget* widget;
+    QWidget* layoutWidget2;
     QHBoxLayout* horizontalLayout_2;
     QLabel* Daily;
     QFrame* line_3;
     QLabel* DailyText;
-    QWidget* widget1;
+    QWidget* layoutWidget3;
     QHBoxLayout* horizontalLayout_3;
     QLabel* Monthly;
     QFrame* line;
     QLabel* MonthlyText;
-    QWidget* widget2;
+    QWidget* layoutWidget4;
     QHBoxLayout* horizontalLayout_4;
     QLabel* Yearly;
     QFrame* line_2;
     QLabel* YearlyText;
-    QWidget* widget3;
+    QWidget* layoutWidget5;
     QVBoxLayout* verticalLayout;
     QLabel* label;
     QPushButton* pushButton;
-    QWidget* widget4;
+    QWidget* layoutWidget6;
     QVBoxLayout* verticalLayout_5;
     QPushButton* SetCurrentPriceButton;
     QLineEdit* CurrentPriceText;
-    QWidget* widget5;
+    QWidget* layoutWidget7;
     QHBoxLayout* horizontalLayout_5;
     QLabel* HoursLabel;
     QLineEdit* HoursText;
+    QGroupBox* groupBox;
+    QListWidget* listWidgetDevices;
     QStatusBar* statusbar;
-    QButtonGroup* buttonGroup;
 
     void setupUi(QMainWindow* MainWindow) {
         if(MainWindow->objectName().isEmpty())
@@ -154,12 +153,12 @@ public:
         splitter->setObjectName(QString::fromUtf8("splitter"));
         splitter->setGeometry(QRect(10, 40, 191, 91));
         splitter->setOrientation(Qt::Vertical);
-        widget = new QWidget(splitter);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        horizontalLayout_2 = new QHBoxLayout(widget);
+        layoutWidget2 = new QWidget(splitter);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        Daily = new QLabel(widget);
+        Daily = new QLabel(layoutWidget2);
         Daily->setObjectName(QString::fromUtf8("Daily"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
@@ -174,14 +173,14 @@ public:
 
         horizontalLayout_2->addWidget(Daily);
 
-        line_3 = new QFrame(widget);
+        line_3 = new QFrame(layoutWidget2);
         line_3->setObjectName(QString::fromUtf8("line_3"));
         line_3->setFrameShape(QFrame::VLine);
         line_3->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_2->addWidget(line_3);
 
-        DailyText = new QLabel(widget);
+        DailyText = new QLabel(layoutWidget2);
         DailyText->setObjectName(QString::fromUtf8("DailyText"));
         sizePolicy.setHeightForWidth(DailyText->sizePolicy().hasHeightForWidth());
         DailyText->setSizePolicy(sizePolicy);
@@ -191,13 +190,13 @@ public:
 
         horizontalLayout_2->addWidget(DailyText);
 
-        splitter->addWidget(widget);
-        widget1 = new QWidget(splitter);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        horizontalLayout_3 = new QHBoxLayout(widget1);
+        splitter->addWidget(layoutWidget2);
+        layoutWidget3 = new QWidget(splitter);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        Monthly = new QLabel(widget1);
+        Monthly = new QLabel(layoutWidget3);
         Monthly->setObjectName(QString::fromUtf8("Monthly"));
         sizePolicy.setHeightForWidth(Monthly->sizePolicy().hasHeightForWidth());
         Monthly->setSizePolicy(sizePolicy);
@@ -207,14 +206,14 @@ public:
 
         horizontalLayout_3->addWidget(Monthly);
 
-        line = new QFrame(widget1);
+        line = new QFrame(layoutWidget3);
         line->setObjectName(QString::fromUtf8("line"));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_3->addWidget(line);
 
-        MonthlyText = new QLabel(widget1);
+        MonthlyText = new QLabel(layoutWidget3);
         MonthlyText->setObjectName(QString::fromUtf8("MonthlyText"));
         sizePolicy.setHeightForWidth(MonthlyText->sizePolicy().hasHeightForWidth());
         MonthlyText->setSizePolicy(sizePolicy);
@@ -224,13 +223,13 @@ public:
 
         horizontalLayout_3->addWidget(MonthlyText);
 
-        splitter->addWidget(widget1);
-        widget2 = new QWidget(splitter);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        horizontalLayout_4 = new QHBoxLayout(widget2);
+        splitter->addWidget(layoutWidget3);
+        layoutWidget4 = new QWidget(splitter);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        Yearly = new QLabel(widget2);
+        Yearly = new QLabel(layoutWidget4);
         Yearly->setObjectName(QString::fromUtf8("Yearly"));
         sizePolicy.setHeightForWidth(Yearly->sizePolicy().hasHeightForWidth());
         Yearly->setSizePolicy(sizePolicy);
@@ -240,14 +239,14 @@ public:
 
         horizontalLayout_4->addWidget(Yearly);
 
-        line_2 = new QFrame(widget2);
+        line_2 = new QFrame(layoutWidget4);
         line_2->setObjectName(QString::fromUtf8("line_2"));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_4->addWidget(line_2);
 
-        YearlyText = new QLabel(widget2);
+        YearlyText = new QLabel(layoutWidget4);
         YearlyText->setObjectName(QString::fromUtf8("YearlyText"));
         sizePolicy.setHeightForWidth(YearlyText->sizePolicy().hasHeightForWidth());
         YearlyText->setSizePolicy(sizePolicy);
@@ -257,58 +256,72 @@ public:
 
         horizontalLayout_4->addWidget(YearlyText);
 
-        splitter->addWidget(widget2);
-        widget3 = new QWidget(centralwidget);
-        widget3->setObjectName(QString::fromUtf8("widget3"));
-        widget3->setGeometry(QRect(40, 30, 121, 45));
-        verticalLayout = new QVBoxLayout(widget3);
+        splitter->addWidget(layoutWidget4);
+        layoutWidget5 = new QWidget(centralwidget);
+        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(40, 30, 121, 45));
+        verticalLayout = new QVBoxLayout(layoutWidget5);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget3);
+        label = new QLabel(layoutWidget5);
         label->setObjectName(QString::fromUtf8("label"));
         label->setLayoutDirection(Qt::LeftToRight);
         label->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label);
 
-        pushButton = new QPushButton(widget3);
+        pushButton = new QPushButton(layoutWidget5);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         verticalLayout->addWidget(pushButton);
 
-        widget4 = new QWidget(centralwidget);
-        widget4->setObjectName(QString::fromUtf8("widget4"));
-        widget4->setGeometry(QRect(41, 91, 121, 50));
-        verticalLayout_5 = new QVBoxLayout(widget4);
+        layoutWidget6 = new QWidget(centralwidget);
+        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(41, 91, 121, 50));
+        verticalLayout_5 = new QVBoxLayout(layoutWidget6);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        SetCurrentPriceButton = new QPushButton(widget4);
+        SetCurrentPriceButton = new QPushButton(layoutWidget6);
         SetCurrentPriceButton->setObjectName(QString::fromUtf8("SetCurrentPriceButton"));
 
         verticalLayout_5->addWidget(SetCurrentPriceButton);
 
-        CurrentPriceText = new QLineEdit(widget4);
+        CurrentPriceText = new QLineEdit(layoutWidget6);
         CurrentPriceText->setObjectName(QString::fromUtf8("CurrentPriceText"));
 
         verticalLayout_5->addWidget(CurrentPriceText);
 
-        widget5 = new QWidget(centralwidget);
-        widget5->setObjectName(QString::fromUtf8("widget5"));
-        widget5->setGeometry(QRect(198, 120, 181, 21));
-        horizontalLayout_5 = new QHBoxLayout(widget5);
+        layoutWidget7 = new QWidget(centralwidget);
+        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
+        layoutWidget7->setGeometry(QRect(198, 120, 181, 21));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget7);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        HoursLabel = new QLabel(widget5);
+        HoursLabel = new QLabel(layoutWidget7);
         HoursLabel->setObjectName(QString::fromUtf8("HoursLabel"));
 
         horizontalLayout_5->addWidget(HoursLabel);
 
-        HoursText = new QLineEdit(widget5);
+        HoursText = new QLineEdit(layoutWidget7);
         HoursText->setObjectName(QString::fromUtf8("HoursText"));
 
         horizontalLayout_5->addWidget(HoursText);
 
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setGeometry(QRect(290, 200, 141, 221));
+        listWidgetDevices = new QListWidget(groupBox);
+        listWidgetDevices->setObjectName(QString::fromUtf8("listWidgetDevices"));
+        listWidgetDevices->setGeometry(QRect(10, 20, 111, 192));
         MainWindow->setCentralWidget(centralwidget);
+        groupBox->raise();
+        InsertPushButton->raise();
+        layoutWidget->raise();
+        layoutWidget->raise();
+        ResultBox->raise();
+        layoutWidget->raise();
+        layoutWidget->raise();
+        layoutWidget->raise();
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
@@ -335,6 +348,7 @@ public:
         pushButton->setText(QCoreApplication::translate("MainWindow", "Volts", nullptr));
         SetCurrentPriceButton->setText(QCoreApplication::translate("MainWindow", "Set current price", nullptr));
         HoursLabel->setText(QCoreApplication::translate("MainWindow", "Hours/day", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
     } // retranslateUi
 
 };
@@ -342,7 +356,7 @@ public:
 
 QT_END_NAMESPACE
 
-#endif // UNTITLEDKLPXQE_H
+#endif // UNTITLEDDYBHRL_H
 
 
 #endif //POWERANALYSER_UI_MAINWINDOW_H

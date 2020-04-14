@@ -31,10 +31,12 @@ public:
         calculateCosts();
     };
 
+
     void calculateCosts();
     void printCosts();
 
 
+    //GETTER and SETTER
     unsigned int getWatts() const;
     void setWatts(unsigned int watts);
     float getYearlyCost() const;
@@ -51,6 +53,7 @@ private:
     float monthlyCost{0.};
     float dailyCost{0.};
     unsigned int hourUsage{HOURS_IN_A_DAY};
+
 };
 
 
