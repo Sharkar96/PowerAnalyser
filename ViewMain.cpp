@@ -48,14 +48,10 @@ void ViewMain::switchMode() {
     controller->switchMode();
 }
 
-void ViewMain::displayDeviceCosts(Device &a) const {
-
-}
 
 void ViewMain::setCurrentPrice() {
     if(ui->CurrentPriceText->isVisible()) {
-        if(ui->CurrentPriceText->text() != "")
-            CURRENT_PRICE = ui->CurrentPriceText->text().toFloat();
+        controller->setCurrentPrice(ui->CurrentPriceText->text().toFloat());
         ui->CurrentPriceText->setVisible(false);
     } else
         ui->CurrentPriceText->setVisible(true);
@@ -74,6 +70,7 @@ void ViewMain::updateDevice() {
     ui->MonthlyText->setText(QString::number(model->lastDevice().getMonthlyCost()));
     ui->YearlyText->setText(QString::number(model->lastDevice().getYearlyCost()));
 
+    ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice().getName()));
 
 }
 

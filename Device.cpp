@@ -53,4 +53,12 @@ void Device::printCosts() {
 
 }
 
+const std::string &Device::getName() const {
+    return name;
+}
+
+void Device::setName(const std::string &name) {
+    Device::name = name;
+}
+
 

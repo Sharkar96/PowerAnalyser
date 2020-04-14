@@ -24,11 +24,11 @@ public:
 
     void goWattMode();
     void goVAmode();
-    void displayDeviceCosts(Device &a) const;
     void clearInput();
 
     void updateDevice() override;
     void updateMode() override;
+
 private slots:
     void setCurrentPrice();
     void button_clicked();

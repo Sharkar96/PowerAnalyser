@@ -13,7 +13,7 @@ public:
 
     void switchMode();
     void addDevice(int v, int a, std::string n, int h);
-
+    void setCurrentPrice(float currentPrice);
 private:
     ModelMain* model;
 };

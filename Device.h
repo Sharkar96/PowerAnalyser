@@ -45,6 +45,8 @@ public:
     void setMontlyCost(float montlyCost);
     float getDailyCost() const;
     void setDailyCost(float dailyCost);
+    const std::string &getName() const;
+    void setName(const std::string &name);
 private:
     float currentPrice{CURRENT_PRICE};
     float watts;

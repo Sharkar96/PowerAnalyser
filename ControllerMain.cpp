@@ -17,3 +17,7 @@ void ControllerMain::addDevice(int v, int a, std::string n, int h) {
     model->addDevice(v, a, n, h);
 
 }
+
+void ControllerMain::setCurrentPrice(float currentPrice) {
+    CURRENT_PRICE = currentPrice;
+}
