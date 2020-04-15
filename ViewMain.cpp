@@ -12,6 +12,8 @@ ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m},
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(switchMode()));
     connect(ui->SetCurrentPriceButton, SIGNAL(clicked()), this, SLOT(setCurrentPrice()));
     connect(ui->listWidgetDevices, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(onItemClicked()));
+    ui->widget->setVisible(false);
+
     ui->CurrentPriceText->setVisible(false);
 
 }
@@ -19,14 +21,14 @@ ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m},
 
 void ViewMain::button_clicked() {
     controller->addDevice(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
-                          ui->NameLineEdit->text().toStdString(), ui->HoursText->text().toInt());
+                          ui->NameLineEdit_2->text().toStdString(), ui->HoursText->text().toInt());
 }
 
 
 void ViewMain::clearInput() {
     ui->VoltsWattLineEdit->clear();
     ui->AmpsLineEdit->clear();
-    ui->NameLineEdit->clear();
+    ui->NameLineEdit_2->clear();
     ui->HoursText->clear();
 }
 
@@ -80,5 +82,6 @@ void ViewMain::displayDevice(const Device &d) {
     ui->DailyText->setText(QString::number(d.getDailyCost()));
     ui->MonthlyText->setText(QString::number(d.getMonthlyCost()));
     ui->YearlyText->setText(QString::number(d.getYearlyCost()));
+
 }
 

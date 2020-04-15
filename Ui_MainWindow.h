@@ -4,17 +4,16 @@
 
 #ifndef POWERANALYSER_UI_MAINWINDOW_H
 #define POWERANALYSER_UI_MAINWINDOW_H
-
 /********************************************************************************
-** Form generated from reading UI file 'untitleddybHRl.ui'
+** Form generated from reading UI file 'untitleddGqTEM.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UNTITLEDDYBHRL_H
-#define UNTITLEDDYBHRL_H
+#ifndef UNTITLEDDGQTEM_H
+#define UNTITLEDDGQTEM_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -36,8 +35,10 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow {
 public:
     QWidget* centralwidget;
-    QPushButton* InsertPushButton;
+    QWidget* widget;
+    QPushButton* removeButton;
     QWidget* layoutWidget;
+    QVBoxLayout* verticalLayout_6;
     QHBoxLayout* horizontalLayout;
     QVBoxLayout* verticalLayout_3;
     QLabel* VoltsWattsLabel;
@@ -45,58 +46,68 @@ public:
     QVBoxLayout* verticalLayout_2;
     QLineEdit* VoltsWattLineEdit;
     QLineEdit* AmpsLineEdit;
-    QWidget* layoutWidget1;
-    QVBoxLayout* verticalLayout_4;
-    QLabel* NameLabel;
-    QLineEdit* NameLineEdit;
+    QHBoxLayout* horizontalLayout_5;
+    QLabel* HoursLabel;
+    QLineEdit* HoursText;
+    QPushButton* InsertPushButton;
+    QWidget* layoutWidget_3;
+    QVBoxLayout* verticalLayout;
+    QLabel* label;
+    QPushButton* pushButton;
     QGroupBox* ResultBox;
     QSplitter* splitter;
-    QWidget* layoutWidget2;
+    QWidget* layoutWidget_4;
     QHBoxLayout* horizontalLayout_2;
     QLabel* Daily;
     QFrame* line_3;
     QLabel* DailyText;
-    QWidget* layoutWidget3;
+    QWidget* layoutWidget_5;
     QHBoxLayout* horizontalLayout_3;
     QLabel* Monthly;
     QFrame* line;
     QLabel* MonthlyText;
-    QWidget* layoutWidget4;
+    QWidget* layoutWidget_6;
     QHBoxLayout* horizontalLayout_4;
     QLabel* Yearly;
     QFrame* line_2;
     QLabel* YearlyText;
-    QWidget* layoutWidget5;
-    QVBoxLayout* verticalLayout;
-    QLabel* label;
-    QPushButton* pushButton;
-    QWidget* layoutWidget6;
+    QWidget* layoutWidget_7;
+    QHBoxLayout* horizontalLayout_6;
+    QLabel* currentPriceLabel;
+    QLabel* currentPriceLabel2;
+    QWidget* layoutWidget_8;
     QVBoxLayout* verticalLayout_5;
     QPushButton* SetCurrentPriceButton;
     QLineEdit* CurrentPriceText;
-    QWidget* layoutWidget7;
-    QHBoxLayout* horizontalLayout_5;
-    QLabel* HoursLabel;
-    QLineEdit* HoursText;
     QGroupBox* groupBox;
     QListWidget* listWidgetDevices;
+    QWidget* layoutWidget_2;
+    QVBoxLayout* verticalLayout_7;
+    QLabel* NameLabel_2;
+    QLineEdit* NameLineEdit_2;
     QStatusBar* statusbar;
 
     void setupUi(QMainWindow* MainWindow) {
         if(MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(494, 448);
+        MainWindow->resize(622, 562);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        InsertPushButton = new QPushButton(centralwidget);
-        InsertPushButton->setObjectName(QString::fromUtf8("InsertPushButton"));
-        InsertPushButton->setGeometry(QRect(260, 150, 111, 23));
-        layoutWidget = new QWidget(centralwidget);
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(60, 80, 471, 421));
+        widget->setMaximumSize(QSize(471, 421));
+        removeButton = new QPushButton(widget);
+        removeButton->setObjectName(QString::fromUtf8("removeButton"));
+        removeButton->setGeometry(QRect(410, 180, 21, 21));
+        layoutWidget = new QWidget(widget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(220, 60, 161, 48));
-        horizontalLayout = new QHBoxLayout(layoutWidget);
+        layoutWidget->setGeometry(QRect(220, 40, 174, 77));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         VoltsWattsLabel = new QLabel(layoutWidget);
@@ -127,25 +138,48 @@ public:
 
         horizontalLayout->addLayout(verticalLayout_2);
 
-        layoutWidget1 = new QWidget(centralwidget);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(260, 10, 116, 41));
-        verticalLayout_4 = new QVBoxLayout(layoutWidget1);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        NameLabel = new QLabel(layoutWidget1);
-        NameLabel->setObjectName(QString::fromUtf8("NameLabel"));
 
-        verticalLayout_4->addWidget(NameLabel);
+        verticalLayout_6->addLayout(horizontalLayout);
 
-        NameLineEdit = new QLineEdit(layoutWidget1);
-        NameLineEdit->setObjectName(QString::fromUtf8("NameLineEdit"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        HoursLabel = new QLabel(layoutWidget);
+        HoursLabel->setObjectName(QString::fromUtf8("HoursLabel"));
 
-        verticalLayout_4->addWidget(NameLineEdit);
+        horizontalLayout_5->addWidget(HoursLabel);
 
-        ResultBox = new QGroupBox(centralwidget);
+        HoursText = new QLineEdit(layoutWidget);
+        HoursText->setObjectName(QString::fromUtf8("HoursText"));
+
+        horizontalLayout_5->addWidget(HoursText);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_5);
+
+        InsertPushButton = new QPushButton(widget);
+        InsertPushButton->setObjectName(QString::fromUtf8("InsertPushButton"));
+        InsertPushButton->setGeometry(QRect(280, 130, 111, 23));
+        layoutWidget_3 = new QWidget(widget);
+        layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
+        layoutWidget_3->setGeometry(QRect(20, 0, 121, 45));
+        verticalLayout = new QVBoxLayout(layoutWidget_3);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(layoutWidget_3);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setLayoutDirection(Qt::LeftToRight);
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label);
+
+        pushButton = new QPushButton(layoutWidget_3);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        verticalLayout->addWidget(pushButton);
+
+        ResultBox = new QGroupBox(widget);
         ResultBox->setObjectName(QString::fromUtf8("ResultBox"));
-        ResultBox->setGeometry(QRect(20, 200, 221, 171));
+        ResultBox->setGeometry(QRect(0, 170, 221, 171));
         QFont font;
         font.setPointSize(10);
         ResultBox->setFont(font);
@@ -153,12 +187,12 @@ public:
         splitter->setObjectName(QString::fromUtf8("splitter"));
         splitter->setGeometry(QRect(10, 40, 191, 91));
         splitter->setOrientation(Qt::Vertical);
-        layoutWidget2 = new QWidget(splitter);
-        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        horizontalLayout_2 = new QHBoxLayout(layoutWidget2);
+        layoutWidget_4 = new QWidget(splitter);
+        layoutWidget_4->setObjectName(QString::fromUtf8("layoutWidget_4"));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget_4);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        Daily = new QLabel(layoutWidget2);
+        Daily = new QLabel(layoutWidget_4);
         Daily->setObjectName(QString::fromUtf8("Daily"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
@@ -173,14 +207,14 @@ public:
 
         horizontalLayout_2->addWidget(Daily);
 
-        line_3 = new QFrame(layoutWidget2);
+        line_3 = new QFrame(layoutWidget_4);
         line_3->setObjectName(QString::fromUtf8("line_3"));
         line_3->setFrameShape(QFrame::VLine);
         line_3->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_2->addWidget(line_3);
 
-        DailyText = new QLabel(layoutWidget2);
+        DailyText = new QLabel(layoutWidget_4);
         DailyText->setObjectName(QString::fromUtf8("DailyText"));
         sizePolicy.setHeightForWidth(DailyText->sizePolicy().hasHeightForWidth());
         DailyText->setSizePolicy(sizePolicy);
@@ -190,13 +224,13 @@ public:
 
         horizontalLayout_2->addWidget(DailyText);
 
-        splitter->addWidget(layoutWidget2);
-        layoutWidget3 = new QWidget(splitter);
-        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget3);
+        splitter->addWidget(layoutWidget_4);
+        layoutWidget_5 = new QWidget(splitter);
+        layoutWidget_5->setObjectName(QString::fromUtf8("layoutWidget_5"));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget_5);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        Monthly = new QLabel(layoutWidget3);
+        Monthly = new QLabel(layoutWidget_5);
         Monthly->setObjectName(QString::fromUtf8("Monthly"));
         sizePolicy.setHeightForWidth(Monthly->sizePolicy().hasHeightForWidth());
         Monthly->setSizePolicy(sizePolicy);
@@ -206,14 +240,14 @@ public:
 
         horizontalLayout_3->addWidget(Monthly);
 
-        line = new QFrame(layoutWidget3);
+        line = new QFrame(layoutWidget_5);
         line->setObjectName(QString::fromUtf8("line"));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_3->addWidget(line);
 
-        MonthlyText = new QLabel(layoutWidget3);
+        MonthlyText = new QLabel(layoutWidget_5);
         MonthlyText->setObjectName(QString::fromUtf8("MonthlyText"));
         sizePolicy.setHeightForWidth(MonthlyText->sizePolicy().hasHeightForWidth());
         MonthlyText->setSizePolicy(sizePolicy);
@@ -223,13 +257,13 @@ public:
 
         horizontalLayout_3->addWidget(MonthlyText);
 
-        splitter->addWidget(layoutWidget3);
-        layoutWidget4 = new QWidget(splitter);
-        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        horizontalLayout_4 = new QHBoxLayout(layoutWidget4);
+        splitter->addWidget(layoutWidget_5);
+        layoutWidget_6 = new QWidget(splitter);
+        layoutWidget_6->setObjectName(QString::fromUtf8("layoutWidget_6"));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget_6);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        Yearly = new QLabel(layoutWidget4);
+        Yearly = new QLabel(layoutWidget_6);
         Yearly->setObjectName(QString::fromUtf8("Yearly"));
         sizePolicy.setHeightForWidth(Yearly->sizePolicy().hasHeightForWidth());
         Yearly->setSizePolicy(sizePolicy);
@@ -239,14 +273,14 @@ public:
 
         horizontalLayout_4->addWidget(Yearly);
 
-        line_2 = new QFrame(layoutWidget4);
+        line_2 = new QFrame(layoutWidget_6);
         line_2->setObjectName(QString::fromUtf8("line_2"));
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
 
         horizontalLayout_4->addWidget(line_2);
 
-        YearlyText = new QLabel(layoutWidget4);
+        YearlyText = new QLabel(layoutWidget_6);
         YearlyText->setObjectName(QString::fromUtf8("YearlyText"));
         sizePolicy.setHeightForWidth(YearlyText->sizePolicy().hasHeightForWidth());
         YearlyText->setSizePolicy(sizePolicy);
@@ -256,72 +290,68 @@ public:
 
         horizontalLayout_4->addWidget(YearlyText);
 
-        splitter->addWidget(layoutWidget4);
-        layoutWidget5 = new QWidget(centralwidget);
-        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(40, 30, 121, 45));
-        verticalLayout = new QVBoxLayout(layoutWidget5);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(layoutWidget5);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setLayoutDirection(Qt::LeftToRight);
-        label->setAlignment(Qt::AlignCenter);
+        splitter->addWidget(layoutWidget_6);
+        layoutWidget_7 = new QWidget(ResultBox);
+        layoutWidget_7->setObjectName(QString::fromUtf8("layoutWidget_7"));
+        layoutWidget_7->setGeometry(QRect(110, 10, 101, 20));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget_7);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        currentPriceLabel = new QLabel(layoutWidget_7);
+        currentPriceLabel->setObjectName(QString::fromUtf8("currentPriceLabel"));
+        QFont font2;
+        font2.setPointSize(8);
+        currentPriceLabel->setFont(font2);
 
-        verticalLayout->addWidget(label);
+        horizontalLayout_6->addWidget(currentPriceLabel);
 
-        pushButton = new QPushButton(layoutWidget5);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        currentPriceLabel2 = new QLabel(layoutWidget_7);
+        currentPriceLabel2->setObjectName(QString::fromUtf8("currentPriceLabel2"));
+        QFont font3;
+        font3.setPointSize(9);
+        currentPriceLabel2->setFont(font3);
 
-        verticalLayout->addWidget(pushButton);
+        horizontalLayout_6->addWidget(currentPriceLabel2);
 
-        layoutWidget6 = new QWidget(centralwidget);
-        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(41, 91, 121, 50));
-        verticalLayout_5 = new QVBoxLayout(layoutWidget6);
+        layoutWidget_8 = new QWidget(widget);
+        layoutWidget_8->setObjectName(QString::fromUtf8("layoutWidget_8"));
+        layoutWidget_8->setGeometry(QRect(21, 61, 121, 50));
+        verticalLayout_5 = new QVBoxLayout(layoutWidget_8);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        SetCurrentPriceButton = new QPushButton(layoutWidget6);
+        SetCurrentPriceButton = new QPushButton(layoutWidget_8);
         SetCurrentPriceButton->setObjectName(QString::fromUtf8("SetCurrentPriceButton"));
 
         verticalLayout_5->addWidget(SetCurrentPriceButton);
 
-        CurrentPriceText = new QLineEdit(layoutWidget6);
+        CurrentPriceText = new QLineEdit(layoutWidget_8);
         CurrentPriceText->setObjectName(QString::fromUtf8("CurrentPriceText"));
 
         verticalLayout_5->addWidget(CurrentPriceText);
 
-        layoutWidget7 = new QWidget(centralwidget);
-        layoutWidget7->setObjectName(QString::fromUtf8("layoutWidget7"));
-        layoutWidget7->setGeometry(QRect(198, 120, 181, 21));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget7);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        HoursLabel = new QLabel(layoutWidget7);
-        HoursLabel->setObjectName(QString::fromUtf8("HoursLabel"));
-
-        horizontalLayout_5->addWidget(HoursLabel);
-
-        HoursText = new QLineEdit(layoutWidget7);
-        HoursText->setObjectName(QString::fromUtf8("HoursText"));
-
-        horizontalLayout_5->addWidget(HoursText);
-
-        groupBox = new QGroupBox(centralwidget);
+        groupBox = new QGroupBox(widget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(290, 200, 141, 221));
+        groupBox->setGeometry(QRect(270, 170, 131, 221));
         listWidgetDevices = new QListWidget(groupBox);
         listWidgetDevices->setObjectName(QString::fromUtf8("listWidgetDevices"));
-        listWidgetDevices->setGeometry(QRect(10, 20, 111, 192));
+        listWidgetDevices->setGeometry(QRect(10, 20, 101, 192));
+        layoutWidget_2 = new QWidget(centralwidget);
+        layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
+        layoutWidget_2->setGeometry(QRect(340, 30, 116, 41));
+        verticalLayout_7 = new QVBoxLayout(layoutWidget_2);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
+        NameLabel_2 = new QLabel(layoutWidget_2);
+        NameLabel_2->setObjectName(QString::fromUtf8("NameLabel_2"));
+
+        verticalLayout_7->addWidget(NameLabel_2);
+
+        NameLineEdit_2 = new QLineEdit(layoutWidget_2);
+        NameLineEdit_2->setObjectName(QString::fromUtf8("NameLineEdit_2"));
+
+        verticalLayout_7->addWidget(NameLineEdit_2);
+
         MainWindow->setCentralWidget(centralwidget);
-        groupBox->raise();
-        InsertPushButton->raise();
-        layoutWidget->raise();
-        layoutWidget->raise();
-        ResultBox->raise();
-        layoutWidget->raise();
-        layoutWidget->raise();
-        layoutWidget->raise();
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
@@ -333,22 +363,25 @@ public:
 
     void retranslateUi(QMainWindow* MainWindow) {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        InsertPushButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
+        removeButton->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         VoltsWattsLabel->setText(QCoreApplication::translate("MainWindow", "Volts", nullptr));
         AmpsLabel->setText(QCoreApplication::translate("MainWindow", "Amps", nullptr));
-        NameLabel->setText(QCoreApplication::translate("MainWindow", "Device name", nullptr));
-        ResultBox->setTitle(QCoreApplication::translate("MainWindow", "Results", nullptr));
-        Daily->setText(QCoreApplication::translate("MainWindow", "Daily cost", nullptr));
-        DailyText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        Monthly->setText(QCoreApplication::translate("MainWindow", "Monthly cost", nullptr));
-        MonthlyText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        Yearly->setText(QCoreApplication::translate("MainWindow", "Yearly cost", nullptr));
-        YearlyText->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        HoursLabel->setText(QCoreApplication::translate("MainWindow", "Hours/day", nullptr));
+        InsertPushButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Press to change mode", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Volts", nullptr));
+        ResultBox->setTitle(QCoreApplication::translate("MainWindow", "Results", nullptr));
+        Daily->setText(QCoreApplication::translate("MainWindow", "Daily cost", nullptr));
+        DailyText->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        Monthly->setText(QCoreApplication::translate("MainWindow", "Monthly cost", nullptr));
+        MonthlyText->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        Yearly->setText(QCoreApplication::translate("MainWindow", "Yearly cost", nullptr));
+        YearlyText->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        currentPriceLabel->setText(QCoreApplication::translate("MainWindow", "Current Price", nullptr));
+        currentPriceLabel2->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         SetCurrentPriceButton->setText(QCoreApplication::translate("MainWindow", "Set current price", nullptr));
-        HoursLabel->setText(QCoreApplication::translate("MainWindow", "Hours/day", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
+        NameLabel_2->setText(QCoreApplication::translate("MainWindow", "Device name", nullptr));
     } // retranslateUi
 
 };
@@ -356,7 +389,7 @@ public:
 
 QT_END_NAMESPACE
 
-#endif // UNTITLEDDYBHRL_H
+#endif // UNTITLEDDGQTEM_H
 
 
 #endif //POWERANALYSER_UI_MAINWINDOW_H

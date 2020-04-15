@@ -43,6 +43,8 @@ public:
     void setYearlyCost(float yearlyCost);
     float getMonthlyCost() const;
     void setMontlyCost(float montlyCost);
+    float getCurrentPrice() const;
+    void setCurrentPrice(float currentPrice);
     float getDailyCost() const;
     void setDailyCost(float dailyCost);
     const std::string &getName() const;

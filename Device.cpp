@@ -61,4 +61,12 @@ void Device::setName(const std::string &name) {
     Device::name = name;
 }
 
+float Device::getCurrentPrice() const {
+    return currentPrice;
+}
+
+void Device::setCurrentPrice(float currentPrice) {
+    Device::currentPrice = currentPrice;
+}
+
 
