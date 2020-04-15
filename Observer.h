@@ -5,6 +5,7 @@
 #ifndef POWERANALYSER_OBSERVER_H
 #define POWERANALYSER_OBSERVER_H
 
+
 class Observer {
 public:
     virtual ~Observer() {}

@@ -44,4 +44,12 @@ const Device &ModelMain::lastDevice() {
     return (*devicesList.back());
 }
 
+const Device &ModelMain::findDevice(std::string name) {
+    Device* a;
+    for(auto i : devicesList)
+        if(name == i->getName())
+            a = i;
+    return *a;
+}
+
 

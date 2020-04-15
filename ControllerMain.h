@@ -9,12 +9,13 @@
 
 class ControllerMain {
 public:
-    ControllerMain(ModelMain* m) : model{m} {};
+    explicit ControllerMain(ModelMain* m) : model{m} {};
 
     void switchMode();
     void addDevice(int v, int a, std::string n, int h);
     void setCurrentPrice(float currentPrice);
-    void displayCosts(std::string name);
+    const Device &displayCosts(std::string name);
+
 private:
     ModelMain* model;
 };

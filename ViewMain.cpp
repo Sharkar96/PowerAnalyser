@@ -50,7 +50,7 @@ void ViewMain::switchMode() {
 }
 
 void ViewMain::onItemClicked() {
-    controller->displayCosts(ui->listWidgetDevices->currentItem()->text().toStdString());
+    displayDevice(controller->displayCosts(ui->listWidgetDevices->currentItem()->text().toStdString()));
 }
 
 void ViewMain::setCurrentPrice() {
@@ -70,12 +70,15 @@ void ViewMain::updateMode() {
 
 void ViewMain::updateDevice() {
     clearInput();
-    ui->DailyText->setText(QString::number(model->lastDevice().getDailyCost()));
-    ui->MonthlyText->setText(QString::number(model->lastDevice().getMonthlyCost()));
-    ui->YearlyText->setText(QString::number(model->lastDevice().getYearlyCost()));
-
+    displayDevice(model->lastDevice());
     ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice().getName()));
 
 }
 
+void ViewMain::displayDevice(const Device &d) {
+
+    ui->DailyText->setText(QString::number(d.getDailyCost()));
+    ui->MonthlyText->setText(QString::number(d.getMonthlyCost()));
+    ui->YearlyText->setText(QString::number(d.getYearlyCost()));
+}
 

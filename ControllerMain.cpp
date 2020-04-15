@@ -22,6 +22,6 @@ void ControllerMain::setCurrentPrice(float currentPrice) {
     CURRENT_PRICE = currentPrice;
 }
 
-void ControllerMain::displayCosts(std::string name) {
-    std::cout << name << std::endl;
+const Device &ControllerMain::displayCosts(std::string name) {
+    return model->findDevice(name);
 }

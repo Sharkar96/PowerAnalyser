@@ -25,6 +25,7 @@ public:
     void goWattMode();
     void goVAmode();
     void clearInput();
+    void displayDevice(const Device &d);
 
     void updateDevice() override;
     void updateMode() override;

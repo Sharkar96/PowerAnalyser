@@ -20,6 +20,7 @@ public:
     void addObserver(Observer* ob) override;
     void removeObserver(Observer* ob) override;
 
+    const Device &findDevice(std::string name);
 
     void addDevice(int v, int a, std::string n, int h);
     void removeDevice();
