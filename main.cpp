@@ -4,7 +4,9 @@
 #include <QApplication>
 #include "ControllerMain.h"
 
+float Device::CURRENT_PRICE = 0.18;
 int main(int argc, char* argv[]) {
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 

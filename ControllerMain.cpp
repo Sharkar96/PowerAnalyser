@@ -19,7 +19,7 @@ void ControllerMain::addDevice(int v, int a, std::string n, int h) {
 }
 
 void ControllerMain::setCurrentPrice(float currentPrice) {
-    setCurrentP(currentPrice);
+    Device::setCurrentP(currentPrice);
 }
 
 const Device &ControllerMain::displayCosts(std::string name) {
