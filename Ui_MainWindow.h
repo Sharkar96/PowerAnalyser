@@ -5,15 +5,15 @@
 #ifndef POWERANALYSER_UI_MAINWINDOW_H
 #define POWERANALYSER_UI_MAINWINDOW_H
 /********************************************************************************
-** Form generated from reading UI file 'untitleddGqTEM.ui'
+** Form generated from reading UI file 'untitledUNhZFb.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UNTITLEDDGQTEM_H
-#define UNTITLEDDGQTEM_H
+#ifndef UNTITLEDUNHZFB_H
+#define UNTITLEDUNHZFB_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -34,63 +34,63 @@ QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow {
 public:
-    QWidget* centralwidget;
-    QWidget* widget;
-    QPushButton* removeButton;
-    QWidget* layoutWidget;
-    QVBoxLayout* verticalLayout_6;
-    QHBoxLayout* horizontalLayout;
-    QVBoxLayout* verticalLayout_3;
-    QLabel* VoltsWattsLabel;
-    QLabel* AmpsLabel;
-    QVBoxLayout* verticalLayout_2;
-    QLineEdit* VoltsWattLineEdit;
-    QLineEdit* AmpsLineEdit;
-    QHBoxLayout* horizontalLayout_5;
-    QLabel* HoursLabel;
-    QLineEdit* HoursText;
-    QPushButton* InsertPushButton;
-    QWidget* layoutWidget_3;
-    QVBoxLayout* verticalLayout;
-    QLabel* label;
-    QPushButton* pushButton;
-    QGroupBox* ResultBox;
-    QSplitter* splitter;
-    QWidget* layoutWidget_4;
-    QHBoxLayout* horizontalLayout_2;
-    QLabel* Daily;
-    QFrame* line_3;
-    QLabel* DailyText;
-    QWidget* layoutWidget_5;
-    QHBoxLayout* horizontalLayout_3;
-    QLabel* Monthly;
-    QFrame* line;
-    QLabel* MonthlyText;
-    QWidget* layoutWidget_6;
-    QHBoxLayout* horizontalLayout_4;
-    QLabel* Yearly;
-    QFrame* line_2;
-    QLabel* YearlyText;
-    QWidget* layoutWidget_7;
-    QHBoxLayout* horizontalLayout_6;
-    QLabel* currentPriceLabel;
-    QLabel* currentPriceLabel2;
-    QWidget* layoutWidget_8;
-    QVBoxLayout* verticalLayout_5;
-    QPushButton* SetCurrentPriceButton;
-    QLineEdit* CurrentPriceText;
-    QGroupBox* groupBox;
-    QListWidget* listWidgetDevices;
-    QWidget* layoutWidget_2;
-    QVBoxLayout* verticalLayout_7;
-    QLabel* NameLabel_2;
-    QLineEdit* NameLineEdit_2;
-    QStatusBar* statusbar;
+    QWidget *centralwidget;
+    QWidget *widget;
+    QPushButton *removeButton;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *VoltsWattsLabel;
+    QLabel *AmpsLabel;
+    QVBoxLayout *verticalLayout_2;
+    QLineEdit *VoltsWattLineEdit;
+    QLineEdit *AmpsLineEdit;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *HoursLabel;
+    QLineEdit *HoursText;
+    QPushButton *InsertPushButton;
+    QWidget *layoutWidget_3;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
+    QPushButton *pushButton;
+    QGroupBox *ResultBox;
+    QSplitter *splitter;
+    QWidget *layoutWidget_4;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *Daily;
+    QFrame *line_3;
+    QLabel *DailyText;
+    QWidget *layoutWidget_5;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *Monthly;
+    QFrame *line;
+    QLabel *MonthlyText;
+    QWidget *layoutWidget_6;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *Yearly;
+    QFrame *line_2;
+    QLabel *YearlyText;
+    QWidget *layoutWidget_7;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *currentPriceLabel;
+    QLabel *currentPriceLabel2;
+    QWidget *layoutWidget_8;
+    QVBoxLayout *verticalLayout_5;
+    QPushButton *SetCurrentPriceButton;
+    QLineEdit *CurrentPriceText;
+    QGroupBox *groupBox;
+    QListWidget *listWidgetDevices;
+    QWidget *layoutWidget_2;
+    QVBoxLayout *verticalLayout_7;
+    QLabel *NameLabel_2;
+    QLineEdit *NameLineEdit_2;
+    QStatusBar *statusbar;
 
-    void setupUi(QMainWindow* MainWindow) {
-        if(MainWindow->objectName().isEmpty())
+    void setupUi(QMainWindow *MainWindow) {
+        if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(622, 562);
+        MainWindow->resize(574, 575);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         widget = new QWidget(centralwidget);
@@ -99,10 +99,10 @@ public:
         widget->setMaximumSize(QSize(471, 421));
         removeButton = new QPushButton(widget);
         removeButton->setObjectName(QString::fromUtf8("removeButton"));
-        removeButton->setGeometry(QRect(410, 180, 21, 21));
+        removeButton->setGeometry(QRect(410, 180, 31, 31));
         layoutWidget = new QWidget(widget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(220, 40, 174, 77));
+        layoutWidget->setGeometry(QRect(220, 40, 174, 91));
         verticalLayout_6 = new QVBoxLayout(layoutWidget);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -161,7 +161,7 @@ public:
         InsertPushButton->setGeometry(QRect(280, 130, 111, 23));
         layoutWidget_3 = new QWidget(widget);
         layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(20, 0, 121, 45));
+        layoutWidget_3->setGeometry(QRect(20, 0, 146, 59));
         verticalLayout = new QVBoxLayout(layoutWidget_3);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -315,7 +315,7 @@ public:
 
         layoutWidget_8 = new QWidget(widget);
         layoutWidget_8->setObjectName(QString::fromUtf8("layoutWidget_8"));
-        layoutWidget_8->setGeometry(QRect(21, 61, 121, 50));
+        layoutWidget_8->setGeometry(QRect(21, 61, 143, 66));
         verticalLayout_5 = new QVBoxLayout(layoutWidget_8);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -337,7 +337,7 @@ public:
         listWidgetDevices->setGeometry(QRect(10, 20, 101, 192));
         layoutWidget_2 = new QWidget(centralwidget);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(340, 30, 116, 41));
+        layoutWidget_2->setGeometry(QRect(340, 30, 116, 47));
         verticalLayout_7 = new QVBoxLayout(layoutWidget_2);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -361,7 +361,7 @@ public:
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
-    void retranslateUi(QMainWindow* MainWindow) {
+    void retranslateUi(QMainWindow *MainWindow) {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         removeButton->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         VoltsWattsLabel->setText(QCoreApplication::translate("MainWindow", "Volts", nullptr));
@@ -389,7 +389,7 @@ public:
 
 QT_END_NAMESPACE
 
-#endif // UNTITLEDDGQTEM_H
+#endif // UNTITLEDUNHZFB_H
 
 
 #endif //POWERANALYSER_UI_MAINWINDOW_H

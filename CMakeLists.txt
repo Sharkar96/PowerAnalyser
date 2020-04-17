@@ -3,6 +3,9 @@ project(PowerAnalyser)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# Required if: 1) using macOS and 2) using Brew
+set(CMAKE_PREFIX_PATH "/usr/local/Cellar/qt/5.14.1/lib/cmake/")
+
 # Instruct CMake to run moc automatically when needed.
 set(CMAKE_AUTOMOC ON)
 

@@ -16,6 +16,8 @@ public:
     void setCurrentPrice(float currentPrice);
     const Device &displayCosts(std::string name);
 
+    void removeDevice(std::string name);
+
 private:
     ModelMain* model;
 };

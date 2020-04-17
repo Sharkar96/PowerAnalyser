@@ -65,8 +65,6 @@ float Device::getCurrentPrice() const {
     return currentPrice;
 }
 
-void Device::setCurrentPrice(float currentPrice) {
-    Device::currentPrice = currentPrice;
-}
+
 
 

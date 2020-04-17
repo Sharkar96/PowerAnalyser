@@ -20,9 +20,14 @@ public:
     void addObserver(Observer* ob) override;
     void removeObserver(Observer* ob) override;
 
+    bool isEmpty();
+
     const Device &findDevice(std::string name);
+
     void addDevice(int v, int a, std::string n, int h);
-    void removeDevice();
+
+    void removeDevice(std::string name);
+
     bool isMode() const;
     void setMode(bool mode);
     const Device &lastDevice();

@@ -19,9 +19,13 @@ void ControllerMain::addDevice(int v, int a, std::string n, int h) {
 }
 
 void ControllerMain::setCurrentPrice(float currentPrice) {
-    CURRENT_PRICE = currentPrice;
+    setCurrentP(currentPrice);
 }
 
 const Device &ControllerMain::displayCosts(std::string name) {
     return model->findDevice(name);
+}
+
+void ControllerMain::removeDevice(std::string name) {
+    model->removeDevice(name);
 }
