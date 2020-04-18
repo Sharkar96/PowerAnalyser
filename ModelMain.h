@@ -22,7 +22,7 @@ public:
 
     bool isEmpty();
 
-    const Device &findDevice(std::string name);
+    const Device* findDevice(std::string name);
 
     void addDevice(int v, int a, std::string n, int h);
 
@@ -30,7 +30,7 @@ public:
 
     bool isMode() const;
     void setMode(bool mode);
-    const Device &lastDevice();
+    const Device& lastDevice();
 private:
     bool mode;// true=watt mode, false= VA mode
     std::list<Observer*> observers;

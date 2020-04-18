@@ -2,6 +2,7 @@
 // Created by Andrea on 4/9/2020.
 //
 
+#include <QMessageBox>
 #include "ViewMain.h"
 
 ViewMain::ViewMain(ModelMain *m, ControllerMain *c, QWidget *parent) : model{m}, controller{c}, QMainWindow(parent),
@@ -21,8 +22,20 @@ ViewMain::ViewMain(ModelMain *m, ControllerMain *c, QWidget *parent) : model{m},
 
 
 void ViewMain::button_clicked() {
-    controller->addDevice(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
-                          ui->NameLineEdit_2->text().toStdString(), ui->HoursText->text().toInt());
+    try {
+        controller->addDevice(ui->VoltsWattLineEdit->text().toInt(), ui->AmpsLineEdit->text().toInt(),
+                              ui->NameLineEdit_2->text().toStdString(), ui->HoursText->text().toInt());
+    }
+    catch(std::out_of_range& e) {
+        QMessageBox messageBox;
+        messageBox.setText(e.what());
+        messageBox.exec();
+    }
+    catch(std::invalid_argument& e) {
+        QMessageBox messageBox;
+        messageBox.setText(e.what());
+        messageBox.exec();
+    }
 }
 
 

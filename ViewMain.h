@@ -26,7 +26,7 @@ public:
     void goVAmode();
     void clearInput();
 
-    void displayDevice(const Device &d);
+    void displayDevice(const Device& d);
 
     void updateDevice() override;
 
@@ -35,21 +35,16 @@ public:
 private slots:
 
     void setCurrentPrice();
-
     void button_clicked();
-
     void switchMode();
-
     void onItemClicked();
-
     void programIntro();
-
     void removeDevice();
 
 private:
-    ControllerMain *controller;
-    ModelMain *model;
-    Ui_MainWindow *ui;
+    ControllerMain* controller;
+    ModelMain* model;
+    Ui_MainWindow* ui;
 
 };
 

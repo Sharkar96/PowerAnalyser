@@ -6,20 +6,20 @@
 
 
 void ModelMain::notifyModeChange() {
-    for (Observer *i: observers)
+    for(Observer* i: observers)
         i->updateMode();
 }
 
 void ModelMain::notifyDeviceAdd() {
-    for (Observer *i: observers)
+    for(Observer* i: observers)
         i->updateDevice();
 }
 
-void ModelMain::addObserver(Observer *ob) {
+void ModelMain::addObserver(Observer* ob) {
     observers.emplace_back(ob);
 }
 
-void ModelMain::removeObserver(Observer *ob) {
+void ModelMain::removeObserver(Observer* ob) {
     observers.remove(ob);
 }
 
@@ -33,23 +33,23 @@ void ModelMain::setMode(bool mode) {
 }
 
 void ModelMain::addDevice(int v, int a, std::string n, int h) {
-    if (!mode)
+    if(!mode)
         devicesList.emplace_back(new Device(v, a, n, h));
-    else if (mode)
+    else if(mode)
         devicesList.emplace_back(new Device(v, n, h));
     notifyDeviceAdd();
 }
 
-const Device &ModelMain::lastDevice() {
+const Device& ModelMain::lastDevice() {
     return (*devicesList.back());
 }
 
-const Device &ModelMain::findDevice(std::string name) {
-    Device *a;
-    for (auto i : devicesList)
-        if (name == i->getName())
+const Device* ModelMain::findDevice(std::string name) {
+    Device* a = nullptr;
+    for(auto i : devicesList)
+        if(name == i->getName())
             a = i;
-    return *a;
+    return a;
 }
 
 bool ModelMain::isEmpty() {
@@ -59,13 +59,13 @@ bool ModelMain::isEmpty() {
 void ModelMain::removeDevice(std::string name) {
     auto i = devicesList.begin();
 
-    while (i != devicesList.end())
-        if ((*i)->getName() == name)
+    while(i != devicesList.end())
+        if((*i)->getName() == name) {
+            delete *i; //the object is a pointer, so it has to be deleted before being
+            // removed from the vector
             devicesList.erase(i);
-        else
+        } else
             i++;
-
-
 }
 
 
