@@ -22,8 +22,8 @@ public:
     };
 
     Device(unsigned int v, unsigned int a, std::string n, unsigned int h = HOURS_IN_A_DAY) : name{n}, hourUsage{h} {
-        if (v > 0 && a > 0) {
-            if (a > 10)//amps are in mA
+        if(v > 0 && a > 0) {
+            if(a > 10)//amps are in mA
                 watts = (v * a) / CONVERSION_RATE;
             else
                 watts = v * a;
@@ -37,34 +37,24 @@ public:
     void printCosts();
 
     static float CURRENT_PRICE;
+    static float TotalYearlyPrice;
 
-    void static
-    setCurrentP(float currentPrice) {
+    void static setCurrentP(float currentPrice) {
         CURRENT_PRICE = currentPrice;
     };
 
     //GETTER and SETTER
     unsigned int getWatts() const;
-
     void setWatts(unsigned int watts);
-
     float getYearlyCost() const;
-
     void setYearlyCost(float yearlyCost);
-
     float getMonthlyCost() const;
-
     void setMontlyCost(float montlyCost);
-
     float getCurrentPrice() const;
-
     float getDailyCost() const;
-
     void setDailyCost(float dailyCost);
-
-    const std::string &getName() const;
-
-    void setName(const std::string &name);
+    const std::string& getName() const;
+    void setName(const std::string& name);
 
 private:
     float currentPrice{CURRENT_PRICE};

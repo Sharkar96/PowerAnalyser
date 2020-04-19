@@ -5,8 +5,9 @@
 #include <QMessageBox>
 #include "ViewMain.h"
 
-ViewMain::ViewMain(ModelMain *m, ControllerMain *c, QWidget *parent) : model{m}, controller{c}, QMainWindow(parent),
-                                                                       ui(new Ui_MainWindow()) {
+ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m}, controller{c}, QMainWindow(parent),
+                                                                       ui(new Ui_MainWindow()), TotalYearlyPriceLabel{
+                new QLabel(QString::number(Device::TotalYearlyPrice))} {
     model->addObserver(this);
     ui->setupUi(this);
     connect(ui->InsertPushButton, SIGNAL(clicked()), this, SLOT(button_clicked()));
@@ -17,7 +18,8 @@ ViewMain::ViewMain(ModelMain *m, ControllerMain *c, QWidget *parent) : model{m},
     connect(ui->removeButton, SIGNAL(clicked()), this, SLOT(removeDevice()));
     ui->widget->setVisible(false);
     ui->CurrentPriceText->setVisible(false);
-
+    statusBar()->addWidget(new QLabel("Total Yearly costs: "));
+    statusBar()->addWidget(TotalYearlyPriceLabel);
 }
 
 
@@ -70,7 +72,7 @@ void ViewMain::onItemClicked() {
 }
 
 void ViewMain::setCurrentPrice() {
-    if (ui->CurrentPriceText->isVisible()) {
+    if(ui->CurrentPriceText->isVisible()) {
         controller->setCurrentPrice(ui->CurrentPriceText->text().toFloat());
         ui->CurrentPriceText->setVisible(false);
     } else
@@ -78,7 +80,7 @@ void ViewMain::setCurrentPrice() {
 }
 
 void ViewMain::updateMode() {
-    if (model->isMode())
+    if(model->isMode())
         goWattMode();
     else
         goVAmode();
@@ -88,10 +90,10 @@ void ViewMain::updateDevice() {
     clearInput();
     displayDevice(model->lastDevice());
     ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice().getName()));
-
+    updateStatusBar(QString::number(Device::TotalYearlyPrice));
 }
 
-void ViewMain::displayDevice(const Device &d) {
+void ViewMain::displayDevice(const Device& d) {
 
     ui->DailyText->setText(QString::number(d.getDailyCost()));
     ui->MonthlyText->setText(QString::number(d.getMonthlyCost()));
@@ -101,16 +103,22 @@ void ViewMain::displayDevice(const Device &d) {
 }
 
 void ViewMain::programIntro() {
-    if (model->isEmpty() && ui->NameLineEdit_2->text() != nullptr)
+    if(model->isEmpty() && ui->NameLineEdit_2->text() != nullptr)
         ui->widget->setVisible(true);
-    else if (model->isEmpty() && ui->NameLineEdit_2->text() == nullptr)
+    else if(model->isEmpty() && ui->NameLineEdit_2->text() == nullptr)
         ui->widget->setVisible(false);
 
 }
 
 void ViewMain::removeDevice() {
     controller->removeDevice(ui->listWidgetDevices->currentItem()->text().toStdString());
-    QListWidgetItem *a = ui->listWidgetDevices->takeItem(ui->listWidgetDevices->currentRow());
-    delete a;
+    delete ui->listWidgetDevices->takeItem(ui->listWidgetDevices->currentRow());
 
 }
+
+void ViewMain::updateStatusBar(QString p) {
+    TotalYearlyPriceLabel->setText(p);
+}
+
+
+

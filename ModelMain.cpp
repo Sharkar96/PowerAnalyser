@@ -33,10 +33,15 @@ void ModelMain::setMode(bool mode) {
 }
 
 void ModelMain::addDevice(int v, int a, std::string n, int h) {
-    if(!mode)
-        devicesList.emplace_back(new Device(v, a, n, h));
-    else if(mode)
-        devicesList.emplace_back(new Device(v, n, h));
+    if(!mode) {
+        Device* device = new Device(v, a, n, h);
+        devicesList.emplace_back(device);
+        Device::TotalYearlyPrice += device->getYearlyCost();
+    } else if(mode) {
+        Device* device = new Device(v, n, h);
+        devicesList.emplace_back(device);
+        Device::TotalYearlyPrice += device->getYearlyCost();
+    }
     notifyDeviceAdd();
 }
 
@@ -61,6 +66,7 @@ void ModelMain::removeDevice(std::string name) {
 
     while(i != devicesList.end())
         if((*i)->getName() == name) {
+
             delete *i; //the object is a pointer, so it has to be deleted before being
             // removed from the vector
             devicesList.erase(i);

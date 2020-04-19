@@ -25,11 +25,11 @@ public:
     void goWattMode();
     void goVAmode();
     void clearInput();
+    void updateStatusBar(QString p);
+
 
     void displayDevice(const Device& d);
-
     void updateDevice() override;
-
     void updateMode() override;
 
 private slots:
@@ -45,6 +45,7 @@ private:
     ControllerMain* controller;
     ModelMain* model;
     Ui_MainWindow* ui;
+    QLabel* TotalYearlyPriceLabel;
 
 };
 
