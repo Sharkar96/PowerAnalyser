@@ -16,10 +16,17 @@ ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m},
     connect(ui->listWidgetDevices, SIGNAL(itemClicked(QListWidgetItem * )), this, SLOT(onItemClicked()));
     connect(ui->NameLineEdit_2, SIGNAL(textEdited(const QString &)), this, SLOT(programIntro()));
     connect(ui->removeButton, SIGNAL(clicked()), this, SLOT(removeDevice()));
-    ui->widget->setVisible(false);
-    ui->CurrentPriceText->setVisible(false);
+
+
     statusBar()->addWidget(new QLabel("Total Yearly costs: "));
     statusBar()->addWidget(TotalYearlyPriceLabel);
+
+    ui->widget->setVisible(false);
+    ui->CurrentPriceText->setVisible(false);
+    ui->VoltsWattLineEdit->setValidator(new QIntValidator());
+    ui->AmpsLineEdit->setValidator(new QIntValidator());
+    ui->HoursText->setValidator(new QIntValidator());
+    ui->CurrentPriceText->setValidator(new QIntValidator());
 }
 
 
