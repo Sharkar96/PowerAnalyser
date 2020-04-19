@@ -17,6 +17,7 @@ public:
 
     void notifyModeChange() override;
     void notifyDeviceAdd() override;
+    void notifyTotalYearlyCostChanged() override;
     void addObserver(Observer* ob) override;
     void removeObserver(Observer* ob) override;
 
@@ -25,12 +26,13 @@ public:
     const Device* findDevice(std::string name);
 
     void addDevice(int v, int a, std::string n, int h);
-
     void removeDevice(std::string name);
 
     bool isMode() const;
     void setMode(bool mode);
     const Device& lastDevice();
+    void addTotalYearlyCost(float cost);
+    void subtractTotalYearlyCost(float cost);
 private:
     bool mode;// true=watt mode, false= VA mode
     std::list<Observer*> observers;

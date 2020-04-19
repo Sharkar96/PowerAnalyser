@@ -36,11 +36,11 @@ void ModelMain::addDevice(int v, int a, std::string n, int h) {
     if(!mode) {
         Device* device = new Device(v, a, n, h);
         devicesList.emplace_back(device);
-        Device::TotalYearlyPrice += device->getYearlyCost();
+        addTotalYearlyCost(device->getYearlyCost());
     } else if(mode) {
         Device* device = new Device(v, n, h);
         devicesList.emplace_back(device);
-        Device::TotalYearlyPrice += device->getYearlyCost();
+        addTotalYearlyCost(device->getYearlyCost());
     }
     notifyDeviceAdd();
 }
@@ -66,12 +66,28 @@ void ModelMain::removeDevice(std::string name) {
 
     while(i != devicesList.end())
         if((*i)->getName() == name) {
-
+            subtractTotalYearlyCost((*i)->getYearlyCost());
             delete *i; //the object is a pointer, so it has to be deleted before being
             // removed from the vector
             devicesList.erase(i);
+
         } else
             i++;
+}
+
+void ModelMain::notifyTotalYearlyCostChanged() {
+    for(Observer* i: observers)
+        i->updateStatusBar();
+}
+
+void ModelMain::addTotalYearlyCost(float cost) {
+    Device::TotalYearlyPrice += cost;
+    notifyTotalYearlyCostChanged();
+}
+
+void ModelMain::subtractTotalYearlyCost(float cost) {
+    Device::TotalYearlyPrice -= cost;
+    notifyTotalYearlyCostChanged();
 }
 
 

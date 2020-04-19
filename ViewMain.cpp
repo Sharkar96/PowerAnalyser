@@ -46,6 +46,11 @@ void ViewMain::clearInput() {
     ui->AmpsLineEdit->clear();
     ui->NameLineEdit_2->clear();
     ui->HoursText->clear();
+
+    ui->DailyText->clear();
+    ui->MonthlyText->clear();
+    ui->YearlyText->clear();
+    ui->currentPriceLabel2->clear();
 }
 
 void ViewMain::goVAmode() {
@@ -90,7 +95,7 @@ void ViewMain::updateDevice() {
     clearInput();
     displayDevice(model->lastDevice());
     ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice().getName()));
-    updateStatusBar(QString::number(Device::TotalYearlyPrice));
+    updateStatusBar();
 }
 
 void ViewMain::displayDevice(const Device& d) {
@@ -111,13 +116,16 @@ void ViewMain::programIntro() {
 }
 
 void ViewMain::removeDevice() {
-    controller->removeDevice(ui->listWidgetDevices->currentItem()->text().toStdString());
-    delete ui->listWidgetDevices->takeItem(ui->listWidgetDevices->currentRow());
+    if(ui->listWidgetDevices->currentItem() != nullptr) {
+        controller->removeDevice(ui->listWidgetDevices->currentItem()->text().toStdString());
+        delete ui->listWidgetDevices->takeItem(ui->listWidgetDevices->currentRow());
+        clearInput();
+    }
 
 }
 
-void ViewMain::updateStatusBar(QString p) {
-    TotalYearlyPriceLabel->setText(p);
+void ViewMain::updateStatusBar() {
+    TotalYearlyPriceLabel->setText(QString::number(Device::TotalYearlyPrice));
 }
 
 

@@ -12,6 +12,7 @@ class Subject {
 public:
     virtual void notifyDeviceAdd() = 0;
     virtual void notifyModeChange() = 0;
+    virtual void notifyTotalYearlyCostChanged() = 0;
     virtual void addObserver(Observer* ob) = 0;
     virtual void removeObserver(Observer* ob) = 0;
 

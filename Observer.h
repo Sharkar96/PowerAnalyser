@@ -12,6 +12,7 @@ public:
 
     virtual void updateMode() = 0;
     virtual void updateDevice() = 0;
+    virtual void updateStatusBar() = 0;
 
 
 };
