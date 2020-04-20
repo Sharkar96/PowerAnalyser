@@ -20,7 +20,6 @@ public:
         currentPrice = Device::CURRENT_PRICE;
         calculateCosts();
     };
-
     Device(unsigned int v, unsigned int a, std::string n, unsigned int h = HOURS_IN_A_DAY) : name{n}, hourUsage{h} {
         if(v > 0 && a > 0) {
             if(a > 10)//amps are in mA
@@ -30,11 +29,11 @@ public:
         }
         calculateCosts();
     };
-
+    Device(std::string d);
 
     void calculateCosts();
+    std::string savingFormat();
 
-    void printCosts();
 
     static float CURRENT_PRICE;
     static float TotalYearlyPrice;
@@ -54,7 +53,7 @@ public:
     float getDailyCost() const;
     void setDailyCost(float dailyCost);
     const std::string& getName() const;
-    void setName(const std::string& name);
+    void setName(const std::string& n);
 
 private:
     float currentPrice{CURRENT_PRICE};

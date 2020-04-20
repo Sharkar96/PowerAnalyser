@@ -14,7 +14,9 @@ public:
     void switchMode();
     void addDevice(int v, int a, std::string n, int h);
     void setCurrentPrice(float currentPrice);
-    const Device &displayCosts(std::string name);
+    const Device& displayCosts(std::string name);
+    void saveSession();
+
 
     void removeDevice(std::string name);
 

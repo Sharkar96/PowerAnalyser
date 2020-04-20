@@ -18,8 +18,10 @@ public:
     ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent = 0);
 
     ~ViewMain() {
+        controller->saveSession();
         delete ui;
         model->removeObserver(this);
+
     };
 
     void goWattMode();
@@ -32,6 +34,7 @@ public:
     void updateDevice() override;
     void updateMode() override;
     void updateStatusBar() override;
+
 private slots:
 
     void setCurrentPrice();

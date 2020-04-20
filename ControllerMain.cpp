@@ -41,3 +41,7 @@ const Device& ControllerMain::displayCosts(std::string name) {
 void ControllerMain::removeDevice(std::string name) {
     model->removeDevice(name);
 }
+
+void ControllerMain::saveSession() {
+    model->saveOnFile();
+}

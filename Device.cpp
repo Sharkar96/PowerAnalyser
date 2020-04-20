@@ -3,7 +3,52 @@
 //
 
 #include "Device.h"
-
+Device::Device(std::string d) {
+    char space = ' ';
+    int i = 0;
+    std::string w, cP, hU, dC, mC, yC;
+    while(d[i] != space) {
+        name = name + d[i];
+        i++;
+    }
+    i++;
+    while(d[i] != space) {
+        w = w + d[i];
+        i++;
+    }
+    i++;
+    while(d[i] != space) {
+        cP = cP + d[i];
+        i++;
+    }
+    i++;
+    while(d[i] != space) {
+        hU = hU + d[i];
+        i++;
+    }
+    i++;
+    while(d[i] != space) {
+        dC = dC + d[i];
+        i++;
+    }
+    i++;
+    while(d[i] != space) {
+        mC = mC + d[i];
+        i++;
+    }
+    i++;
+    while(d[i] != space) {
+        yC = yC + d[i];
+        i++;
+    }
+    i++;
+    watts = std::stof(w);
+    currentPrice = std::stof(cP);
+    hourUsage = std::stof(hU);
+    dailyCost = std::stof(dC);
+    monthlyCost = std::stof(mC);
+    yearlyCost = std::stof(yC);
+}
 
 unsigned int Device::getWatts() const {
     return watts;
@@ -45,26 +90,25 @@ void Device::calculateCosts() {
 
 }
 
-void Device::printCosts() {
-    std::cout << name << ":" << std::endl;
-    std::cout << "Daily cost is: " << dailyCost << std::endl;
-    std::cout << "Monthly cost is: " << monthlyCost << std::endl;
-    std::cout << "Yearly cost is: " << yearlyCost << std::endl;
 
-}
-
-const std::string &Device::getName() const {
+const std::string& Device::getName() const {
     return name;
 }
 
-void Device::setName(const std::string &name) {
-    Device::name = name;
+void Device::setName(const std::string& n) {
+    Device::name = n;
 }
 
 float Device::getCurrentPrice() const {
     return currentPrice;
 }
 
-
+std::string Device::savingFormat() {
+    std::string a;
+    a = name + " " + std::to_string(watts) + " " + std::to_string(currentPrice) + " " + std::to_string(hourUsage) +
+        " " + std::to_string(dailyCost) + " " +
+        std::to_string(monthlyCost) + " " + std::to_string(yearlyCost);
+    return a;
+}
 
 

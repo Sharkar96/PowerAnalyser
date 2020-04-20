@@ -33,15 +33,14 @@ void ModelMain::setMode(bool mode) {
 }
 
 void ModelMain::addDevice(int v, int a, std::string n, int h) {
-    if(!mode) {
-        Device* device = new Device(v, a, n, h);
-        devicesList.emplace_back(device);
-        addTotalYearlyCost(device->getYearlyCost());
-    } else if(mode) {
-        Device* device = new Device(v, n, h);
-        devicesList.emplace_back(device);
-        addTotalYearlyCost(device->getYearlyCost());
-    }
+    Device* device;
+    if(!mode)
+        device = new Device(v, a, n, h);
+    else
+        device = new Device(v, n, h);
+
+    devicesList.emplace_back(device);
+    addTotalYearlyCost(device->getYearlyCost());
     notifyDeviceAdd();
 }
 
@@ -88,6 +87,21 @@ void ModelMain::addTotalYearlyCost(float cost) {
 void ModelMain::subtractTotalYearlyCost(float cost) {
     Device::TotalYearlyPrice -= cost;
     notifyTotalYearlyCostChanged();
+}
+
+void ModelMain::saveOnFile() {
+    save.open("Devices.txt");
+    for(auto i :devicesList)
+        save << i->savingFormat() << std::endl;
+    save.close();
+}
+
+
+ModelMain::ModelMain() {
+//use std::getline to parse the filetext and load the information.
+}
+
+ModelMain::~ModelMain() {
 }
 
 
