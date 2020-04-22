@@ -6,7 +6,8 @@
 #define POWERANALYSER_VIEWMAIN_H
 
 #include <iostream>
-#include <QMAinWindow>
+#include <QMainWindow>
+#include <QMessageBox>
 #include "Ui_MainWindow.h"
 #include "Observer.h"
 #include "ModelMain.h"
@@ -26,7 +27,7 @@ public:
 
     void goWattMode();
     void goVAmode();
-    void clearInput();
+    void clearMain();
 
 
 

@@ -16,7 +16,7 @@ public:
     void setCurrentPrice(float currentPrice);
     const Device& displayCosts(std::string name);
     void saveSession();
-
+    void loadSession();
 
     void removeDevice(std::string name);
 

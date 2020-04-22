@@ -90,18 +90,45 @@ void ModelMain::subtractTotalYearlyCost(float cost) {
 }
 
 void ModelMain::saveOnFile() {
-    save.open("Devices.txt");
-    for(auto i :devicesList)
-        save << i->savingFormat() << std::endl;
-    save.close();
+    std::ofstream file("Devices.txt");
+
+    if(file.is_open()) {
+        if(!isEmpty()) {
+            file << Device::TotalYearlyPrice << std::endl;
+            for(auto i :devicesList)
+                file << i->savingFormat() << std::endl;
+
+        }
+        file << "$";
+        file.close();
+    } else
+        // replace with throw
+        std::cout << "can't open file";
+
 }
 
+void ModelMain::loadFromFile() {
+    std::ifstream save("Devices.txt");
 
-ModelMain::ModelMain() {
-//use std::getline to parse the filetext and load the information.
-}
+    if(save.is_open()) {
+        std::string line;
+        std::getline(save, line);
+        if(line != "$") {
+            Device::TotalYearlyPrice = std::stof(line);
+            do {
+                std::getline(save, line);
+                if(line != "$") {
+                    Device* device = new Device(line);
+                    devicesList.emplace_back(device);
+                    notifyDeviceAdd();
+                }
 
-ModelMain::~ModelMain() {
+            } while(!save.eof());
+        }
+        save.close();
+    } else
+        // replace with throw
+        std::cout << "can't open file";
 }
 
 

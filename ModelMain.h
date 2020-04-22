@@ -7,6 +7,7 @@
 
 #include "Subject.h"
 #include "Device.h"
+#include <string>
 #include <list>
 #include <vector>
 #include <fstream>
@@ -15,8 +16,7 @@
 class ModelMain : public Subject {
 public:
 
-    ModelMain();
-    virtual ~ModelMain();
+    virtual ~ModelMain() {};
     void notifyModeChange() override;
     void notifyDeviceAdd() override;
     void notifyTotalYearlyCostChanged() override;
@@ -39,7 +39,6 @@ public:
     void setMode(bool mode);
 
 private:
-    std::ofstream save;
     bool mode;// true=watt mode, false= VA mode
     std::list<Observer*> observers;
     std::vector<Device*> devicesList;

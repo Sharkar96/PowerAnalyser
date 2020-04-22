@@ -2,8 +2,9 @@
 // Created by Andrea on 4/9/2020.
 //
 
-#include <QMessageBox>
+
 #include "ViewMain.h"
+
 
 ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m}, controller{c}, QMainWindow(parent),
                                                                        ui(new Ui_MainWindow()), TotalYearlyPriceLabel{
@@ -27,6 +28,8 @@ ViewMain::ViewMain(ModelMain* m, ControllerMain* c, QWidget* parent) : model{m},
     ui->AmpsLineEdit->setValidator(new QIntValidator());
     ui->HoursText->setValidator(new QIntValidator());
     ui->CurrentPriceText->setValidator(new QIntValidator());
+
+    controller->loadSession();
 }
 
 
@@ -48,7 +51,7 @@ void ViewMain::button_clicked() {
 }
 
 
-void ViewMain::clearInput() {
+void ViewMain::clearMain() {
     ui->VoltsWattLineEdit->clear();
     ui->AmpsLineEdit->clear();
     ui->NameLineEdit_2->clear();
@@ -99,7 +102,7 @@ void ViewMain::updateMode() {
 }
 
 void ViewMain::updateDevice() {
-    clearInput();
+    clearMain();
     displayDevice(model->lastDevice());
     ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice().getName()));
     updateStatusBar();
@@ -115,7 +118,7 @@ void ViewMain::displayDevice(const Device& d) {
 }
 
 void ViewMain::programIntro() {
-    if(model->isEmpty() && ui->NameLineEdit_2->text() != nullptr)
+    if(ui->NameLineEdit_2->text() != nullptr)
         ui->widget->setVisible(true);
     else if(model->isEmpty() && ui->NameLineEdit_2->text() == nullptr)
         ui->widget->setVisible(false);
@@ -126,7 +129,7 @@ void ViewMain::removeDevice() {
     if(ui->listWidgetDevices->currentItem() != nullptr) {
         controller->removeDevice(ui->listWidgetDevices->currentItem()->text().toStdString());
         delete ui->listWidgetDevices->takeItem(ui->listWidgetDevices->currentRow());
-        clearInput();
+        clearMain();
     }
 
 }

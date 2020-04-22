@@ -107,7 +107,7 @@ std::string Device::savingFormat() {
     std::string a;
     a = name + " " + std::to_string(watts) + " " + std::to_string(currentPrice) + " " + std::to_string(hourUsage) +
         " " + std::to_string(dailyCost) + " " +
-        std::to_string(monthlyCost) + " " + std::to_string(yearlyCost);
+        std::to_string(monthlyCost) + " " + std::to_string(yearlyCost) + " ";
     return a;
 }
 
