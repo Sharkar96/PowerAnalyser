@@ -31,7 +31,7 @@ public:
 
 
 
-    void displayDevice(const Device& d);
+    void displayDevice(const std::unique_ptr<Device>& d);
     void updateDevice() override;
     void updateMode() override;
     void updateStatusBar() override;

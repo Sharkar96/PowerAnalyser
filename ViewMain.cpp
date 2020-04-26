@@ -104,16 +104,16 @@ void ViewMain::updateMode() {
 void ViewMain::updateDevice() {
     clearMain();
     displayDevice(model->lastDevice());
-    ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice().getName()));
+    ui->listWidgetDevices->addItem(QString::fromStdString(model->lastDevice()->getName()));
     updateStatusBar();
 }
 
-void ViewMain::displayDevice(const Device& d) {
+void ViewMain::displayDevice(const std::unique_ptr<Device>& d) {
 
-    ui->DailyText->setText(QString::number(d.getDailyCost()));
-    ui->MonthlyText->setText(QString::number(d.getMonthlyCost()));
-    ui->YearlyText->setText(QString::number(d.getYearlyCost()));
-    ui->currentPriceLabel2->setText(QString::number(d.getCurrentPrice()));
+    ui->DailyText->setText(QString::number(d->getDailyCost()));
+    ui->MonthlyText->setText(QString::number(d->getMonthlyCost()));
+    ui->YearlyText->setText(QString::number(d->getYearlyCost()));
+    ui->currentPriceLabel2->setText(QString::number(d->getCurrentPrice()));
 
 }
 

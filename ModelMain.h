@@ -11,7 +11,7 @@
 #include <list>
 #include <vector>
 #include <fstream>
-
+#include <memory>
 
 class ModelMain : public Subject {
 public:
@@ -25,10 +25,10 @@ public:
 
     bool isEmpty(); //checks if devices list is empty
 
-    const Device* findDevice(std::string name);
-    const Device& lastDevice();
+    const std::unique_ptr<Device>& findDevice(const std::string& name);
+    std::unique_ptr<Device>& lastDevice();
     void addDevice(int v, int a, std::string n, int h);
-    void removeDevice(std::string name);
+    void removeDevice(const std::string& name);
     void addTotalYearlyCost(float cost);
     void subtractTotalYearlyCost(float cost);
     void saveOnFile();
@@ -41,7 +41,7 @@ public:
 private:
     bool mode;// true=watt mode, false= VA mode
     std::list<Observer*> observers;
-    std::vector<Device*> devicesList;
+    std::vector<std::unique_ptr<Device>> devicesList;
 
 };
 

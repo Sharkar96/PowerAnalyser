@@ -23,7 +23,7 @@ void ControllerMain::addDevice(int v, int a, std::string n, int h) {
         throw std::out_of_range("amps cannot be under 0");
     else if(h > 24 || h <= 0)
         throw std::out_of_range("hours must be between 0 and 24");
-    else if(model->findDevice(n) != nullptr)
+    else if(model->findDevice(n))
         throw std::invalid_argument("Device with this name already exists");
     else
         model->addDevice(v, a, n, h);
@@ -34,11 +34,11 @@ void ControllerMain::setCurrentPrice(float currentPrice) {
     Device::setCurrentP(currentPrice);
 }
 
-const Device& ControllerMain::displayCosts(std::string name) {
-    return *model->findDevice(name);
+const std::unique_ptr<Device>& ControllerMain::displayCosts(const std::string& name) {
+    return model->findDevice(name);
 }
 
-void ControllerMain::removeDevice(std::string name) {
+void ControllerMain::removeDevice(const std::string& name) {
     model->removeDevice(name);
 }
 

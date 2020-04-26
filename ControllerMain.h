@@ -14,11 +14,11 @@ public:
     void switchMode();
     void addDevice(int v, int a, std::string n, int h);
     void setCurrentPrice(float currentPrice);
-    const Device& displayCosts(std::string name);
+    const std::unique_ptr<Device>& displayCosts(const std::string& name);
     void saveSession();
     void loadSession();
 
-    void removeDevice(std::string name);
+    void removeDevice(const std::string& name);
 
 private:
     ModelMain* model;

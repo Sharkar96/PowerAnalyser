@@ -44,34 +44,31 @@ void ModelMain::addDevice(int v, int a, std::string n, int h) {
     notifyDeviceAdd();
 }
 
-const Device& ModelMain::lastDevice() {
-    return (*devicesList.back());
+std::unique_ptr<Device>& ModelMain::lastDevice() {
+    return devicesList.back();
 }
 
-const Device* ModelMain::findDevice(std::string name) {
-    Device* a = nullptr;
-    for(auto i : devicesList)
+const std::unique_ptr<Device>& ModelMain::findDevice(const std::string& name) {
+    for(const auto& i : devicesList)
         if(name == i->getName())
-            a = i;
-    return a;
+            return i;
+    // FIXME for some reasons, without this code it doesn't work.
+    std::unique_ptr<Device> a;
+    if(a)
+        std::cout << "culo";
+    return nullptr;
 }
 
 bool ModelMain::isEmpty() {
     return devicesList.empty();
 }
 
-void ModelMain::removeDevice(std::string name) {
-    auto i = devicesList.begin();
-
-    while(i != devicesList.end())
+void ModelMain::removeDevice(const std::string& name) {
+    for(auto i = devicesList.begin(); i != devicesList.end(); i++)
         if((*i)->getName() == name) {
             subtractTotalYearlyCost((*i)->getYearlyCost());
-            delete *i; //the object is a pointer, so it has to be deleted before being
-            // removed from the vector
             devicesList.erase(i);
-
-        } else
-            i++;
+        }
 }
 
 void ModelMain::notifyTotalYearlyCostChanged() {
@@ -95,9 +92,8 @@ void ModelMain::saveOnFile() {
     if(file.is_open()) {
         if(!isEmpty()) {
             file << Device::TotalYearlyPrice << std::endl;
-            for(auto i :devicesList)
+            for(auto& i :devicesList)
                 file << i->savingFormat() << std::endl;
-
         }
         file << "$";
         file.close();
@@ -118,8 +114,7 @@ void ModelMain::loadFromFile() {
             do {
                 std::getline(save, line);
                 if(line != "$") {
-                    Device* device = new Device(line);
-                    devicesList.emplace_back(device);
+                    devicesList.emplace_back(new Device(line));
                     notifyDeviceAdd();
                 }
 

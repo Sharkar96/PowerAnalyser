@@ -8,10 +8,10 @@
 #include<iostream>
 
 
-static const float CONVERSION_RATE{1000.};
-static unsigned short int HOURS_IN_A_DAY = 24;
-static unsigned short int DAYS_IN_A_MONTH = 30;
-static unsigned short int DAYS_IN_A_YEAR = 365;
+const float CONVERSION_RATE{1000.};
+const unsigned short int HOURS_IN_A_DAY = 24;
+const unsigned short int DAYS_IN_A_MONTH = 30;
+const unsigned short int DAYS_IN_A_YEAR = 365;
 
 
 class Device {
@@ -20,6 +20,7 @@ public:
         currentPrice = Device::CURRENT_PRICE;
         calculateCosts();
     };
+
     Device(unsigned int v, unsigned int a, std::string n, unsigned int h = HOURS_IN_A_DAY) : name{n}, hourUsage{h} {
         if(v > 0 && a > 0) {
             if(a > 10)//amps are in mA
