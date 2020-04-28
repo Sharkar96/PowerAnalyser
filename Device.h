@@ -55,7 +55,8 @@ public:
     void setDailyCost(float dailyCost);
     const std::string& getName() const;
     void setName(const std::string& n);
-
+    unsigned int getHourUsage() const;
+    void setHourUsage(unsigned int hourUsage);
 private:
     float currentPrice{CURRENT_PRICE};
     float watts;

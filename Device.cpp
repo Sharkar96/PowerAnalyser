@@ -111,4 +111,12 @@ std::string Device::savingFormat() {
     return a;
 }
 
+unsigned int Device::getHourUsage() const {
+    return hourUsage;
+}
+
+void Device::setHourUsage(unsigned int hourUsage) {
+    Device::hourUsage = hourUsage;
+}
+
 
