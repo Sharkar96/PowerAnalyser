@@ -27,7 +27,7 @@ public:
 
     const std::unique_ptr<Device>& findDevice(const std::string& name);
     std::unique_ptr<Device>& lastDevice();
-    void addDevice(int v, int a, std::string n, int h);
+    void addDevice(int v, int a, const std::string& n, int h);
     void removeDevice(const std::string& name);
     void addTotalYearlyCost(float cost);
     void subtractTotalYearlyCost(float cost);

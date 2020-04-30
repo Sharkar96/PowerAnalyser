@@ -3,7 +3,7 @@
 //
 
 #include "Device.h"
-Device::Device(std::string d) {
+Device::Device(const std::string& d) {
     char space = ' ';
     int i = 0;
     std::string w, cP, hU, dC, mC, yC;

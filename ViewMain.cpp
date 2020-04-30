@@ -50,7 +50,6 @@ void ViewMain::button_clicked() {
     }
 }
 
-
 void ViewMain::clearMain() {
     ui->VoltsWattLineEdit->clear();
     ui->AmpsLineEdit->clear();
@@ -126,7 +125,7 @@ void ViewMain::programIntro() {
 }
 
 void ViewMain::removeDevice() {
-    if(ui->listWidgetDevices->currentItem() != nullptr) {
+    if(ui->listWidgetDevices->count() > 0 && ui->listWidgetDevices->currentItem() != nullptr) {
         controller->removeDevice(ui->listWidgetDevices->currentItem()->text().toStdString());
         delete ui->listWidgetDevices->takeItem(ui->listWidgetDevices->currentRow());
         clearMain();

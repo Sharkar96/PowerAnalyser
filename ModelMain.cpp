@@ -32,7 +32,7 @@ void ModelMain::setMode(bool mode) {
     notifyModeChange();
 }
 
-void ModelMain::addDevice(int v, int a, std::string n, int h) {
+void ModelMain::addDevice(int v, int a, const std::string& n, int h) {
     Device* device;
     if(!mode)
         device = new Device(v, a, n, h);
@@ -64,11 +64,12 @@ bool ModelMain::isEmpty() {
 }
 
 void ModelMain::removeDevice(const std::string& name) {
-    for(auto i = devicesList.begin(); i != devicesList.end(); i++)
+    for(auto i = devicesList.begin(); i != devicesList.end();)
         if((*i)->getName() == name) {
             subtractTotalYearlyCost((*i)->getYearlyCost());
             devicesList.erase(i);
-        }
+        } else
+            i++;
 }
 
 void ModelMain::notifyTotalYearlyCostChanged() {

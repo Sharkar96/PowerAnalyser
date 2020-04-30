@@ -5,7 +5,6 @@
 #include "ControllerMain.h"
 
 
-
 void ControllerMain::switchMode() {
     if(model->isMode())
         model->setMode(false);
@@ -13,7 +12,7 @@ void ControllerMain::switchMode() {
         model->setMode(true);
 }
 
-void ControllerMain::addDevice(int v, int a, std::string n, int h) {
+void ControllerMain::addDevice(int v, int a, const std::string& n, int h) {
 
     if(!model->isMode() && (v < 0 || v > 250))
         throw std::out_of_range("volts must be between 0 and 250v");

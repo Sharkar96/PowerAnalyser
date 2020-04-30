@@ -12,7 +12,7 @@ public:
     explicit ControllerMain(ModelMain* m) : model{m} {};
 
     void switchMode();
-    void addDevice(int v, int a, std::string n, int h);
+    void addDevice(int v, int a, const std::string& n, int h);
     void setCurrentPrice(float currentPrice);
     const std::unique_ptr<Device>& displayCosts(const std::string& name);
     void saveSession();

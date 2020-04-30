@@ -16,12 +16,12 @@ const unsigned short int DAYS_IN_A_YEAR = 365;
 
 class Device {
 public:
-    Device(float w, std::string n, unsigned int h = HOURS_IN_A_DAY) : watts{w}, name{n}, hourUsage{h} {
-        currentPrice = Device::CURRENT_PRICE;
+    Device(float w, const std::string& n, unsigned int h = HOURS_IN_A_DAY) : watts{w}, name{n}, hourUsage{h} {
         calculateCosts();
     };
 
-    Device(unsigned int v, unsigned int a, std::string n, unsigned int h = HOURS_IN_A_DAY) : name{n}, hourUsage{h} {
+    Device(unsigned int v, unsigned int a, const std::string& n, unsigned int h = HOURS_IN_A_DAY) : name{n},
+                                                                                                    hourUsage{h} {
         if(v > 0 && a > 0) {
             if(a > 10)//amps are in mA
                 watts = (v * a) / CONVERSION_RATE;
@@ -30,7 +30,7 @@ public:
         }
         calculateCosts();
     };
-    Device(std::string d);
+    explicit Device(const std::string& d);
 
     void calculateCosts();
     std::string savingFormat();
@@ -58,7 +58,7 @@ public:
     unsigned int getHourUsage() const;
     void setHourUsage(unsigned int hourUsage);
 private:
-    float currentPrice{CURRENT_PRICE};
+    float currentPrice{Device::CURRENT_PRICE};
     float watts;
     std::string name;
     float yearlyCost{0.};
